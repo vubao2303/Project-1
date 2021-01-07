@@ -5,6 +5,7 @@
 var APIKey = "563492ad6f91700001000001f270577a46c942ff96c8a4e60398816d";
 var recipeData;
 var pictureData;
+var testPic = "pizza";
 var testFood = "pizza";
 
 
@@ -29,7 +30,7 @@ getRecipe();
 
 function getPicture() {
     return $.ajax({
-        url: "https://api.pexels.com/v1/search?query=people",
+        url: "https://api.pexels.com/v1/search?query=" + testPic,
         headers: {"Authorization": APIKey},
         method: "GET",
         cors: true,
