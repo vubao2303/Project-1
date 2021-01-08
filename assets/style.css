@@ -25,6 +25,9 @@
     color: white;
   }
 
+  /* body {
+    background-color: white;
+  } */
 
 .headerSection {
   background: url("https://images.pexels.com/photos/33242/cooking-ingredient-cuisine-kitchen.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500") 50% no-repeat;
@@ -46,6 +49,9 @@
   color: #fefefe;
   text-shadow: 1px 1px 2px #0a0a0a;
 }
+
+
+
 
 .translucent-form-overlay {
   max-width: 300px;
