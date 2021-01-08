@@ -27,7 +27,6 @@ function getRecipe() {
         }
     })
 }
-getRecipe();
 
 // Query the MealDB database for a random recipe.
 function getRandom() {
@@ -43,7 +42,7 @@ function getRandom() {
         }
     })
 }
-getRandom();
+// getRandom();
 
 // Query the Pexels database for a picture from user search.
 function getPicture() {
@@ -60,4 +59,31 @@ function getPicture() {
         }
     })
 }
-getPicture();
+// getPicture();
+
+
+//---------------- //
+///// FUNCTIONS /////
+//---------------- //
+
+function populateIngred() {
+    $("#ingredients").append(`<h3>Ingredients:</h3>`);
+    var ingredList = $(`<ul id="ing-list"></ul>`);
+    $("#ingredients").append(ingredList);
+    for (var i = 0; i < 20; i++) {
+        if (recipeData.meals[0]["strIngredient" + (i+1)] === "") {
+            return;
+        } else {
+            $("#ing-list").append(`<li>${recipeData.meals[0]["strIngredient" + (i+1)] + " - " + recipeData.meals[0]["strMeasure" + (i+1)]}</li>`);
+        }
+    }
+}   
+
+
+//-------------- //
+///// EXECUTE /////
+//-------------- //
+
+getRecipe().then(function() {
+    populateIngred();
+})
