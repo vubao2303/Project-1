@@ -61,20 +61,3 @@ function getPicture() {
     })
 }
 getPicture();
-
-function function1() {
-
-}
-
-function function2() {
-    
-}
-
-function function3() {
-    
-}
-
-
-function1().then(function2).then(function3).then(function() {
-
-}
