@@ -170,16 +170,34 @@ function displayDirections() {
 ///// EVENT LISTENERS /////
 //---------------------- //
 // button 
+// Search Button 
 $(".search-button").on("click", function (event) {
-event.preventDefault();
-// this function is made underneath 
-randomRecipe();
-});
-
-
-$(".random-btn").on("click", function (event){
-event.preventDefault();
-})
+    event.preventDefault();
+  
+    getRecipe().then(function () {
+      showTitle();
+      showMealImg();
+      populateIngred();
+      showInstruction();
+    })
+  });
+  
+  // I can't decide/random meals button 
+  $(".random-button").on("click", function (event) {
+    event.preventDefault();
+  
+    getRandom().then(function () {
+      showRandomTitle();
+      showRandomMealImg();
+      populateRandomIngred();
+      showRandomInstruction();
+    });
+  })
+  
+  // search restaurant button 
+  $(".restaurant-button").on("click", function (event) {
+  
+  })
 
 
 //-------------- //

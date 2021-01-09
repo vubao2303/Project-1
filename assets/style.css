@@ -30,7 +30,7 @@ text-shadow: 1px 1px 2px #0A0A0A;
   color: #333;
 }
 
-#lab_social_icon_footer .social:hover {
+/* #lab_social_icon_footer .social:hover {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -o-transform: scale(1.1);
@@ -39,11 +39,11 @@ text-shadow: 1px 1px 2px #0A0A0A;
 #lab_social_icon_footer .social {
   -webkit-transform: scale(0.8);
   /* Browser Variations: */
-  
+   */
 
   
 
-.headerSection {
+/* .headerSection {
   background: url("https://images.pexels.com/photos/33242/cooking-ingredient-cuisine-kitchen.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500") 50% no-repeat;
   background-size: cover;
   height: 60vh;
@@ -57,7 +57,7 @@ text-shadow: 1px 1px 2px #0A0A0A;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
+} */
 
 .headerSection .header-section-text {
   color: #fefefe;
@@ -99,13 +99,13 @@ text-shadow: 1px 1px 2px #0A0A0A;
   color: #8a8a8a;
 }
 
-
+/* 
   -moz-transform: scale(0.8);
   -o-transform: scale(0.8);
   -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
-}
+} */
 /*
     Multicoloured Hover Variations
 */
