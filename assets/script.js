@@ -10,7 +10,6 @@ var keywordSearch; var entityID; var entityType;
 // These variables are just for testing functionality until the event listeners are fully operational.
 var testPic = "pizza";
 var testFood = "pizza";
-var testIngred = "potato";
 var testCity = "sacramento";
 var testCityID = "499";
 
@@ -104,16 +103,16 @@ function displayKeywordRecipe() {
         }
     }
     var oldRecipeSTR = recipeData.meals[0].strInstructions;
-    var newRecipeStr;
+    var newRecipeSTR;
     var marker = 0;
     for (var i = 0; i < oldRecipeSTR.length; i++) {
         if (oldRecipeSTR[i] === ".") { 
-            newRecipeStr += oldRecipeSTR.slice(marker, i+1) + "<br>";
+            newRecipeSTR += oldRecipeSTR.slice(marker, i+1) + "<br>";
             marker = i+1;
         }
     }
-    console.log(oldRecipeSTR);
-    $("#recipe").append(`<h3>Directions: </h3><p>${newRecipeStr}</p>`);
+    newRecipeSTR = newRecipeSTR.replace("undefined1", "1");
+    $("#recipe").append(`<h3>Directions: </h3><p>${newRecipeSTR}</p>`);
 };
 
 // Display random recipe.
@@ -132,15 +131,16 @@ function displayRandomRecipe() {
         }
     }
     var oldRecipeSTR = randomData.meals[0].strInstructions;
-    var newRecipeStr;
+    var newRecipeSTR;
     var marker = 0;
     for (var i = 0; i < oldRecipeSTR.length; i++) {
         if (oldRecipeSTR[i] === ".") { 
-            newRecipeStr += oldRecipeSTR.slice(marker, i+1) + "<br>";
+            newRecipeSTR += oldRecipeSTR.slice(marker, i+1) + "<br>";
             marker = i+1;
         }
     }
-    $("#recipe").append(`<h3>Directions: </h3><p>${newRecipeStr}</p>`);
+    newRecipeSTR = newRecipeSTR.replace("undefined1", "1");
+    $("#recipe").append(`<h3>Directions: </h3><p>${newRecipeSTR}</p>`);
 };
 
 ///// DISPLAY RESTAURANT INFO
