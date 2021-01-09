@@ -2,7 +2,7 @@
 ///// GLOBAL VARIABLES /////
 // ---------------------- //
 // These variables hold the JSON data.
-var recipeData; var pictureData; var randomData; var cityData;
+var recipeData; var randomData; var cityData; var restaurantData;
 
 // These variables apply to the searches.
 var keywordSearch; var entityID; var entityType;
@@ -149,8 +149,10 @@ function displayRestInfo() {
     $("#restaurant").empty();
     $("#restaurant").append(`<h2>${restaurantData.best_rated_restaurant[0].restaurant.name}</h2>`);
     $("#restaurant").append(`<p>Cuisine: ${restaurantData.best_rated_restaurant[0].restaurant.cuisines}</p>`);
+    $("#restaurant").append(`<p>Average cost for two: $${restaurantData.best_rated_restaurant[0].restaurant.average_cost_for_two}</p>`);
     $("#restaurant").append(`<p>Address :${restaurantData.best_rated_restaurant[0].restaurant.location.address}</p>`)
     $("#restaurant").append(`<p>Phone #: ${restaurantData.best_rated_restaurant[0].restaurant.phone_numbers}</p>`)
+    $("#restaurant").append(`<a href="${restaurantData.best_rated_restaurant[0].restaurant.url}">View Restaurant</a>`)
 }
 
 // List local restaurants.
@@ -197,9 +199,9 @@ event.preventDefault();
 // The functions below are temporary until the event listeners are operational. Just un-comment them to test functionality.
 
 ///// Get and display keyword recipe:
-getRecipe().then(function() {
-    displayKeywordRecipe();
-});
+// getRecipe().then(function() {
+//     displayKeywordRecipe();
+// });
 
 ///// Get and display random recipe:
 // getRandom().then(function() {
@@ -207,6 +209,6 @@ getRecipe().then(function() {
 // });
 
 ///// Get and display city restaurants:
-// getCityInfo().then(getRestaurants).then(function() {
-//     displayRestInfo();
-// });
+getCityInfo().then(getRestaurants).then(function() {
+    displayRestInfo();
+});
