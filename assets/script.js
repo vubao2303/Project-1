@@ -111,6 +111,23 @@ $("#recipe-name").append(randomRT);
 };
 
 // img 
+// populate pictures 
+function showRandomMealImg() {
+    var randomMealImg = `
+    <img src=${randomData.meals[0].strMealThumb} alt="mealImg" >
+    `
+    $("#current-pic").append(randomMealImg)
+};
+
+
+function showMealImg() {
+    var mealImg = `
+    <img src=${recipeData.meals[0].strMealThumb} alt="mealImg" >
+    `
+    $("#current-pic").append(mealImg);
+};
+
+
 // instruction 
 
 function showInstruction (){
@@ -151,16 +168,19 @@ event.preventDefault();
 //-------------- //
 ///// EXECUTE /////
 //-------------- //
-///// Get keyword recipe:
+/// Get keyword recipe:
 // getRecipe().then(function() {
 //     populateIngred();
 //     showTitle();
 //     showInstruction();
+// showMealImg()
 // })
 
-///// Get random recipe:
+/// Get random recipe:
 getRandom().then(function() {
     showRandomTitle();
     populateRandomIngred();
     showRandomInstruction();
+    showRandomMealImg();
 });
+
