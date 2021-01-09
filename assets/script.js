@@ -164,7 +164,7 @@ event.preventDefault();
 ///// Get and display keyword recipe:
 // getRecipe().then(function() {
 //     recipeKeywordInfo();
-// })
+// });
 
 ///// Get and display random recipe:
 // getRandom().then(function() {
@@ -174,4 +174,4 @@ event.preventDefault();
 ///// Get and display city restaurants:
 getCityInfo().then(getRestaurants).then(function() {
     displayRestInfo();
-})
+});
