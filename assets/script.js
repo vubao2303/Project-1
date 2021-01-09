@@ -210,6 +210,13 @@ $(".restaurant-button").on("click", function (event) {
 });
 
 
+// Save recipe button 
+// $(".save-button").on("click", function (event) {
+//     event.preventDefault(); 
+//     function saveRecipe ();
+// });
+
+
 //-------------- //
 ///// EXECUTE /////
 //-------------- //
