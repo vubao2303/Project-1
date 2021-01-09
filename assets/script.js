@@ -1,19 +1,12 @@
 // ---------------------- //
 ///// GLOBAL VARIABLES /////
 // ---------------------- //
-
-var APIKey = "563492ad6f91700001000001f270577a46c942ff96c8a4e60398816d";
-var recipeData;
-var pictureData;
-var randomData;
-var cityData;
-var keywordSearch;
-var ingredSearch;
-var citySearch;
+// These variables hold the JSON data.
+var recipeData; var pictureData; var randomData; var cityData;
+var keywordSearch; var ingredSearch; var citySearch;
 
 // These variables apply to the restaurant search.
-var entityID;
-var entityType;
+var entityID; var entityType;
 
 // These variables are just for testing functionality until the event listeners are fully operational.
 var testPic = "pizza";
@@ -21,7 +14,6 @@ var testFood = "pizza";
 var testIngred = "potato";
 var testCity = "sacramento";
 var testCityID = "499";
-
 
 
 //------------------ //
@@ -97,74 +89,56 @@ function getRestaurants() {
 ///// FUNCTIONS /////
 //---------------- //
 
-///// DISPLAY RECIPES
-// Display image.
-function showMealImg() {
-    $("#picture").empty();
-    var mealImg = `<img src=${recipeData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`
-    $("#picture").append(mealImg);
-};
-function showRandomMealImg() {
-    $("#picture").empty();
-    var randomMealImg = `<img src=${randomData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`
-    $("#picture").append(randomMealImg)
-};
-
-// Display title.
-function showTitle (){
-    $("#title").empty();
-    var title =`<h1>${recipeData.meals[0].strMeal}</h1>`
-    $("#title").append(title);
-  };
-function showRandomTitle(){
-    $("#title").empty();
-    var randomRT=`<h1 class="title">${randomData.meals[0].strMeal}</h1>`
-    $("#title").append(randomRT);
-};
-
-// Display ingredients.
-function populateIngred() {
-    $("#ingredients").empty();
-    $("#ingredients").append(`<h3>Ingredients:</h3>`);
+// Display keyword recipe.
+function recipeKeywordInfo() {
+    $("#recipe").empty();
+    $("#recipe").append(`<img src=${recipeData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`);
+    $("#recipe").append(`<h1>${recipeData.meals[0].strMeal}</h1>`);
+    $("#recipe").append(`<h3>Ingredients:</h3>`);
     var ingredList = $(`<ul id="ingredient-list"></ul>`);
-    $("#ingredients").append(ingredList);
+    $("#recipe").append(ingredList);
     for (var i = 0; i < 20; i++) {
         if (recipeData.meals[0]["strIngredient" + (i+1)] === "" || null) {
-            return;
+            continue;
         } else {
             $("#ingredient-list").append(`<li>${recipeData.meals[0]["strIngredient" + (i+1)] + " - " + recipeData.meals[0]["strMeasure" + (i+1)]}</li>`);
         }
     }
-}
-function populateRandomIngred() {
-    $("#ingredients").empty();
-    $("#ingredients").append(`<h3>Ingredients:</h3>`);
+    $("#recipe").append(`<h3>Directions: </h3><p>${recipeData.meals[0].strInstructions}</p>`);
+};
+
+// Display random recipe.
+function recipeRandomInfo() {
+    $("#recipe").empty();
+    $("#recipe").append(`<img src=${randomData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`);
+    $("#recipe").append(`<h1>${randomData.meals[0].strMeal}</h1>`);
+    $("#recipe").append(`<h3>Ingredients:</h3>`);
     var ingredList = $(`<ul id="ingredient-list"></ul>`);
-    $("#ingredients").append(ingredList);
+    $("#recipe").append(ingredList);
     for (var i = 0; i < 20; i++) {
         if (randomData.meals[0]["strIngredient" + (i+1)] === "" || null) {
-            return;
+            continue;
         } else {
             $("#ingredient-list").append(`<li>${randomData.meals[0]["strIngredient" + (i+1)] + " - " + randomData.meals[0]["strMeasure" + (i+1)]}</li>`);
         }
     }
-}  
-
-// Display directions.
-function showInstruction() {
-    $("#directions").empty();
-    var instruction = `<h1> Instruction: </h1><p class="iDetails"> ${recipeData.meals[0].strInstructions} </p>`
-    $("#directions").append(instruction);
-}; 
-
-function displayDirections() {
-    $("#directions").empty();
-    var randomInstruction = `<h1> Instruction: </h1><p class="iDetails"> ${randomData.meals[0].strInstructions} </p>`
-    $("#directions").append(randomInstruction);
+    $("#recipe").append(`<h3>Directions: </h3><p>${randomData.meals[0].strInstructions}</p>`);
 };
 
-///// DISPLAY RESTAURANTS
+///// DISPLAY RESTAURANT INFO
+// Display name, cuisine type, address, and phone number.
+function displayRestInfo() {
+    $("#restaurant").empty();
+    $("#restaurant").append(`<h2>${restaurantData.best_rated_restaurant[0].restaurant.name}</h2>`);
+    $("#restaurant").append(`<p>Cuisine: ${restaurantData.best_rated_restaurant[0].restaurant.cuisines}</p>`);
+    $("#restaurant").append(`<p>Address :${restaurantData.best_rated_restaurant[0].restaurant.location.address}</p>`)
+    $("#restaurant").append(`<p>Phone #: ${restaurantData.best_rated_restaurant[0].restaurant.phone_numbers}</p>`)
+}
 
+// List local restaurants.
+function listRestaurants() {
+
+}
 
 //---------------------- //
 ///// EVENT LISTENERS /////
@@ -185,37 +159,19 @@ event.preventDefault();
 //-------------- //
 ///// EXECUTE /////
 //-------------- //
-/// Get keyword recipe:
-// getRecipe().then(function() {
-//     populateIngred();
-//     showTitle();
-//     showInstruction();
-// showMealImg()
-// })
-
-
 // The functions below are temporary until the event listeners are operational. Just un-comment them to test functionality.
 
-///// Get keyword recipe:
+///// Get and display keyword recipe:
 // getRecipe().then(function() {
-//     showMealImg();
-//     showTitle();
-//     populateIngred();
-//     showInstruction();
+//     recipeKeywordInfo();
 // })
 
-///// Get random recipe:
-getRandom().then(function() {
-    showRandomMealImg();
-    showRandomTitle();
-    populateRandomIngred();
-    displayDirections();
-});
+///// Get and display random recipe:
+// getRandom().then(function() {
+//     recipeRandomInfo();
+// });
 
-///// Get city restaurants:
-// getCityInfo().then(getRestaurants).then(function() {
-//     console.log("Name: " + restaurantData.best_rated_restaurant[0].restaurant.name);
-//     console.log("Address: " + restaurantData.best_rated_restaurant[0].restaurant.location.address);
-//     console.log("Phone #: " + restaurantData.best_rated_restaurant[0].restaurant.phone_numbers);
-//     console.log("Cuisine Type: " + restaurantData.best_rated_restaurant[0].restaurant.cuisines);
-// })
+///// Get and display city restaurants:
+getCityInfo().then(getRestaurants).then(function() {
+    displayRestInfo();
+})
