@@ -166,7 +166,7 @@ function listRestaurants() {
             <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i].restaurant.location.address}</p>
             <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i].restaurant.phone_numbers}</p>
             <div class="card-link">
-                <a href="${restaurantData.best_rated_restaurant[0].restaurant.url}">View Restaurant</a>
+                <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
             </div>
         </div>
         `)
