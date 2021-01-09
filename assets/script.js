@@ -96,88 +96,74 @@ function getRestaurants() {
 //---------------- //
 ///// FUNCTIONS /////
 //---------------- //
-// Display keyword search ingredients.
+
+///// DISPLAY RECIPES
+// Display image.
+function showMealImg() {
+    $("#picture").empty();
+    var mealImg = `<img src=${recipeData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`
+    $("#picture").append(mealImg);
+};
+function showRandomMealImg() {
+    $("#picture").empty();
+    var randomMealImg = `<img src=${randomData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`
+    $("#picture").append(randomMealImg)
+};
+
+// Display title.
+function showTitle (){
+    $("#title").empty();
+    var title =`<h1>${recipeData.meals[0].strMeal}</h1>`
+    $("#title").append(title);
+  };
+function showRandomTitle(){
+    $("#title").empty();
+    var randomRT=`<h1 class="title">${randomData.meals[0].strMeal}</h1>`
+    $("#title").append(randomRT);
+};
+
+// Display ingredients.
 function populateIngred() {
     $("#ingredients").empty();
     $("#ingredients").append(`<h3>Ingredients:</h3>`);
-    var ingredList = $(`<ul id="ing-list"></ul>`);
+    var ingredList = $(`<ul id="ingredient-list"></ul>`);
     $("#ingredients").append(ingredList);
     for (var i = 0; i < 20; i++) {
-        if (recipeData.meals[0]["strIngredient" + (i+1)] === "") {
+        if (recipeData.meals[0]["strIngredient" + (i+1)] === "" || null) {
             return;
         } else {
-            $("#ing-list").append(`<li>${recipeData.meals[0]["strIngredient" + (i+1)] + " - " + recipeData.meals[0]["strMeasure" + (i+1)]}</li>`);
+            $("#ingredient-list").append(`<li>${recipeData.meals[0]["strIngredient" + (i+1)] + " - " + recipeData.meals[0]["strMeasure" + (i+1)]}</li>`);
         }
     }
 }
-
-// Display random search ingredients.
 function populateRandomIngred() {
     $("#ingredients").empty();
     $("#ingredients").append(`<h3>Ingredients:</h3>`);
-    var ingredList = $(`<ul id="ing-list"></ul>`);
+    var ingredList = $(`<ul id="ingredient-list"></ul>`);
     $("#ingredients").append(ingredList);
     for (var i = 0; i < 20; i++) {
-        if (randomData.meals[0]["strIngredient" + (i+1)] === "") {
+        if (randomData.meals[0]["strIngredient" + (i+1)] === "" || null) {
             return;
         } else {
-            $("#ing-list").append(`<li>${randomData.meals[0]["strIngredient" + (i+1)] + " - " + randomData.meals[0]["strMeasure" + (i+1)]}</li>`);
+            $("#ingredient-list").append(`<li>${randomData.meals[0]["strIngredient" + (i+1)] + " - " + randomData.meals[0]["strMeasure" + (i+1)]}</li>`);
         }
     }
 }  
 
-// title 
-function showTitle (){
-    var title =`
-    <h1> ${recipeData.meals[0].strMeal}</h1>
-    `
-    $("#recipe-name").append(title);
-  };
-
-function showRandomTitle(){
-var randomRT=`
-<h1 class= "title" > ${randomData.meals[0].strMeal} </h1>
-`
-$("#recipe-name").append(randomRT);
-};
-
-// img 
-// populate pictures 
-function showRandomMealImg() {
-    var randomMealImg = `
-    <img src=${randomData.meals[0].strMealThumb} alt="mealImg" >
-    `
-    $("#current-pic").append(randomMealImg)
-};
-
-
-function showMealImg() {
-    var mealImg = `
-    <img src=${recipeData.meals[0].strMealThumb} alt="mealImg" >
-    `
-    $("#current-pic").append(mealImg);
-};
-
-
-// instruction 
-
-function showInstruction (){
-var instruction = `
-<h1> Instruction: </h1>
-<p class="iDetails"> ${recipeData.meals[0].strInstructions} </p>
-`
-$("#directions").append(instruction);
-// #directions is hard coded in html 
+// Display directions.
+function showInstruction() {
+    $("#directions").empty();
+    var instruction = `<h1> Instruction: </h1><p class="iDetails"> ${recipeData.meals[0].strInstructions} </p>`
+    $("#directions").append(instruction);
 }; 
 
-function showRandomInstruction (){
-var randomInstruction = `
-<h1> Instruction: </h1>
-<p class="iDetails"> ${randomData.meals[0].strInstructions} </p>
-`
-$("#directions").append(randomInstruction);
-// #directions is hard coded in html 
+function displayDirections() {
+    $("#directions").empty();
+    var randomInstruction = `<h1> Instruction: </h1><p class="iDetails"> ${randomData.meals[0].strInstructions} </p>`
+    $("#directions").append(randomInstruction);
 };
+
+///// DISPLAY RESTAURANTS
 
 
 //---------------------- //
@@ -230,23 +216,24 @@ $(".search-button").on("click", function (event) {
 
 ///// Get keyword recipe:
 // getRecipe().then(function() {
+//     showMealImg();
 //     showTitle();
 //     populateIngred();
 //     showInstruction();
 // })
 
 ///// Get random recipe:
-// getRandom().then(function() {
-//     showRandomTitle();
-//     populateRandomIngred();
-//     showRandomInstruction();
-// });
+getRandom().then(function() {
+    showRandomMealImg();
+    showRandomTitle();
+    populateRandomIngred();
+    displayDirections();
+});
 
 ///// Get city restaurants:
-getCityInfo().then(getRestaurants).then(function() {
-    console.log("Name: " + restaurantData.best_rated_restaurant[0].restaurant.name);
-    console.log("Address: " + restaurantData.best_rated_restaurant[0].restaurant.location.address);
-    console.log("Phone #: " + restaurantData.best_rated_restaurant[0].restaurant.phone_numbers);
-    console.log("Cuisine Type: " + restaurantData.best_rated_restaurant[0].restaurant.cuisines);
-})
-
+// getCityInfo().then(getRestaurants).then(function() {
+//     console.log("Name: " + restaurantData.best_rated_restaurant[0].restaurant.name);
+//     console.log("Address: " + restaurantData.best_rated_restaurant[0].restaurant.location.address);
+//     console.log("Phone #: " + restaurantData.best_rated_restaurant[0].restaurant.phone_numbers);
+//     console.log("Cuisine Type: " + restaurantData.best_rated_restaurant[0].restaurant.cuisines);
+// })
