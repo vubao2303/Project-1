@@ -157,6 +157,7 @@ function displayRestInfo() {
 
 // List local restaurants.
 function listRestaurants() {
+    $("#restaurant-list").empty();
     for (var i = 0; i < 10; i++) {
         $("#restaurant-list").append(`
         <div class="restaurant-card">
@@ -181,7 +182,8 @@ function listRestaurants() {
 // Search Button 
 $(".search-button").on("click", function (event) {
     event.preventDefault();
-  
+    $("#restaurant").empty();
+    $("#restaurant-list").empty();
     getRecipe().then(function () {
         displayKeywordRecipe();
     })
@@ -190,17 +192,18 @@ $(".search-button").on("click", function (event) {
 // I can't decide/random meals button 
 $(".random-button").on("click", function (event) {
 event.preventDefault();
-
+$("#restaurant").empty();
+$("#restaurant-list").empty();
     getRandom().then(function () {
         displayRandomRecipe();
     });
 });
 
 
-// search restaurant button 
+// search restaurant button (I am feeling lazy)
 $(".restaurant-button").on("click", function (event) {
-event.preventDefault();
-
+    event.preventDefault();
+    $("#recipe").empty();
     getRecipe().then(function () {
         listRestaurants();
     });
