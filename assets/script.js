@@ -142,6 +142,23 @@ $("#recipe-name").append(randomRT);
 };
 
 // img 
+// populate pictures 
+function showRandomMealImg() {
+    var randomMealImg = `
+    <img src=${randomData.meals[0].strMealThumb} alt="mealImg" >
+    `
+    $("#current-pic").append(randomMealImg)
+};
+
+
+function showMealImg() {
+    var mealImg = `
+    <img src=${recipeData.meals[0].strMealThumb} alt="mealImg" >
+    `
+    $("#current-pic").append(mealImg);
+};
+
+
 // instruction 
 
 function showInstruction (){
@@ -182,12 +199,14 @@ event.preventDefault();
 //-------------- //
 ///// EXECUTE /////
 //-------------- //
-///// Get keyword recipe:
+/// Get keyword recipe:
 // getRecipe().then(function() {
 //     populateIngred();
 //     showTitle();
 //     showInstruction();
+// showMealImg()
 // })
+
 
 // The functions below are temporary until the event listeners are operational. Just un-comment them to test functionality.
 
@@ -212,3 +231,4 @@ getCityInfo().then(getRestaurants).then(function() {
     console.log("Phone #: " + restaurantData.best_rated_restaurant[0].restaurant.phone_numbers);
     console.log("Cuisine Type: " + restaurantData.best_rated_restaurant[0].restaurant.cuisines);
 })
+
