@@ -1,22 +1,23 @@
 /* header */
 .headerSection {
-background: url("https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500") 50% no-repeat;
-background-size: cover;
-height: 60vh;
-text-align: center;
-display: -webkit-flex;
-display: -ms-flexbox;
-display: flex;
--webkit-align-items: center;
-    -ms-flex-align: center;
-        align-items: center;
--webkit-justify-content: center;
-    -ms-flex-pack: center;
-        justify-content: center;
+  background: url("https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
+    50% no-repeat;
+  background-size: cover;
+  height: 60vh;
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 .headerSection .header-section-text {
-color: #FEFEFE;
-text-shadow: 1px 1px 2px #0A0A0A;
+  color: #fefefe;
+  text-shadow: 1px 1px 2px #0a0a0a;
 }
 
 /* Footer */
@@ -39,7 +40,7 @@ text-shadow: 1px 1px 2px #0A0A0A;
 #lab_social_icon_footer .social {
   -webkit-transform: scale(0.8);
   /* Browser Variations: */
-   */
+*/
 
   
 
@@ -64,9 +65,6 @@ text-shadow: 1px 1px 2px #0A0A0A;
   text-shadow: 1px 1px 2px #0a0a0a;
 }
 
-
-
-
 .translucent-form-overlay {
   max-width: 300px;
   width: 100%;
@@ -79,11 +77,13 @@ text-shadow: 1px 1px 2px #0A0A0A;
   display: block;
 }
 
-.translucent-form-overlay h3, .translucent-form-overlay label {
+.translucent-form-overlay h3,
+.translucent-form-overlay label {
   color: #fefefe;
 }
 
-.translucent-form-overlay input, .translucent-form-overlay select {
+.translucent-form-overlay input,
+.translucent-form-overlay select {
   color: #8a8a8a;
 }
 
@@ -111,11 +111,11 @@ text-shadow: 1px 1px 2px #0A0A0A;
 */
 
 #lab_social_icon_footer #social-fb:hover {
-  color: #3B5998;
+  color: #3b5998;
 }
 
 #lab_social_icon_footer #social-tw:hover {
-  color: #4099FF;
+  color: #4099ff;
 }
 
 #lab_social_icon_footer #social-gp:hover {
@@ -126,4 +126,32 @@ text-shadow: 1px 1px 2px #0A0A0A;
   color: #f39c12;
 }
 
+/***** RESTAURANT CARDS *****/
+.restaurant-card {
+  background-color: white;
+  border: 1px solid lightgray;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  width: 30%;
+}
 
+.card-title {
+  font-family: "Open sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.45rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.card-desc {
+  color: darkgray;
+  display: block;
+  font-family: "Open sans", sans-serif;
+  font-size: 0.85rem;
+}
+
+.card-link {
+  display: block;
+  margin-top: 0.8rem;
+}

@@ -157,6 +157,20 @@ function displayRestInfo() {
 
 // List local restaurants.
 function listRestaurants() {
+    for (var i = 0; i < 10; i++) {
+        $("#restaurant-list").append(`
+        <div class="restaurant-card">
+            <h2 class="card-title">${restaurantData.best_rated_restaurant[i].restaurant.name}</h2><br>
+            <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i].restaurant.cuisines}</p>
+            <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i].restaurant.average_cost_for_two}</p>
+            <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i].restaurant.location.address}</p>
+            <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i].restaurant.phone_numbers}</p>
+            <div class="card-link">
+                <a href="${restaurantData.best_rated_restaurant[0].restaurant.url}"></a>
+            </div>
+        </div>
+        `)
+    }
 
 }
 
@@ -209,6 +223,11 @@ event.preventDefault();
 // });
 
 ///// Get and display city restaurants:
+// getCityInfo().then(getRestaurants).then(function() {
+//     displayRestInfo();
+// });
+
+///// Get and display top rated restaurants.
 getCityInfo().then(getRestaurants).then(function() {
-    displayRestInfo();
+    listRestaurants();
 });
