@@ -42,7 +42,7 @@ function getRandom() {
         }
     })
 }
-// getRandom();
+getRandom();
 
 // Query the Pexels database for a picture from user search.
 function getPicture() {
@@ -65,8 +65,9 @@ function getPicture() {
 //---------------- //
 ///// FUNCTIONS /////
 //---------------- //
-
+// Display keyword search ingredients.
 function populateIngred() {
+    $("#ingredients").empty();
     $("#ingredients").append(`<h3>Ingredients:</h3>`);
     var ingredList = $(`<ul id="ing-list"></ul>`);
     $("#ingredients").append(ingredList);
@@ -77,13 +78,89 @@ function populateIngred() {
             $("#ing-list").append(`<li>${recipeData.meals[0]["strIngredient" + (i+1)] + " - " + recipeData.meals[0]["strMeasure" + (i+1)]}</li>`);
         }
     }
-}   
+}
+
+// Display random search ingredients.
+function populateRandomIngred() {
+    $("#ingredients").empty();
+    $("#ingredients").append(`<h3>Ingredients:</h3>`);
+    var ingredList = $(`<ul id="ing-list"></ul>`);
+    $("#ingredients").append(ingredList);
+    for (var i = 0; i < 20; i++) {
+        if (randomData.meals[0]["strIngredient" + (i+1)] === "") {
+            return;
+        } else {
+            $("#ing-list").append(`<li>${randomData.meals[0]["strIngredient" + (i+1)] + " - " + randomData.meals[0]["strMeasure" + (i+1)]}</li>`);
+        }
+    }
+}  
+
+// title 
+function showTitle (){
+    var title =`
+    <h1> ${recipeData.meals[0].strMeal}</h1>
+    `
+    $("#recipe-name").append(title);
+  };
+
+function showRandomTitle(){
+var randomRT=`
+<h1 class= "title" > ${randomData.meals[0].strMeal} </h1>
+`
+$("#recipe-name").append(randomRT);
+};
+
+// img 
+// instruction 
+
+function showInstruction (){
+var instruction = `
+<h1> Instruction: </h1>
+<p class="iDetails"> ${recipeData.meals[0].strInstructions} </p>
+`
+$("#directions").append(instruction);
+// #directions is hard coded in html 
+}; 
+
+function showRandomInstruction (){
+var randomInstruction = `
+<h1> Instruction: </h1>
+<p class="iDetails"> ${randomData.meals[0].strInstructions} </p>
+`
+$("#directions").append(randomInstruction);
+// #directions is hard coded in html 
+};
+
+
+//---------------------- //
+///// EVENT LISTENERS /////
+//---------------------- //
+// button 
+$(".search-button").on("click", function (event) {
+event.preventDefault();
+// this function is made underneath 
+randomRecipe();
+});
+
+
+$(".random-btn").on("click", function (event){
+event.preventDefault();
+})
 
 
 //-------------- //
 ///// EXECUTE /////
 //-------------- //
+///// Get keyword recipe:
+// getRecipe().then(function() {
+//     populateIngred();
+//     showTitle();
+//     showInstruction();
+// })
 
-getRecipe().then(function() {
-    populateIngred();
-})
+///// Get random recipe:
+getRandom().then(function() {
+    showRandomTitle();
+    populateRandomIngred();
+    showRandomInstruction();
+});
