@@ -182,6 +182,12 @@ event.preventDefault();
 //-------------- //
 ///// EXECUTE /////
 //-------------- //
+///// Get keyword recipe:
+// getRecipe().then(function() {
+//     populateIngred();
+//     showTitle();
+//     showInstruction();
+// })
 
 // The functions below are temporary until the event listeners are operational. Just un-comment them to test functionality.
 
