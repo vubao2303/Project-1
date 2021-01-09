@@ -3,10 +3,9 @@
 // ---------------------- //
 // These variables hold the JSON data.
 var recipeData; var pictureData; var randomData; var cityData;
-var keywordSearch; var ingredSearch; var citySearch;
 
-// These variables apply to the restaurant search.
-var entityID; var entityType;
+// These variables apply to the searches.
+var keywordSearch; var entityID; var entityType;
 
 // These variables are just for testing functionality until the event listeners are fully operational.
 var testPic = "pizza";
@@ -90,7 +89,7 @@ function getRestaurants() {
 //---------------- //
 
 // Display keyword recipe.
-function recipeKeywordInfo() {
+function displayKeywordRecipe() {
     $("#recipe").empty();
     $("#recipe").append(`<img src=${recipeData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`);
     $("#recipe").append(`<h1>${recipeData.meals[0].strMeal}</h1>`);
@@ -104,11 +103,21 @@ function recipeKeywordInfo() {
             $("#ingredient-list").append(`<li>${recipeData.meals[0]["strIngredient" + (i+1)] + " - " + recipeData.meals[0]["strMeasure" + (i+1)]}</li>`);
         }
     }
-    $("#recipe").append(`<h3>Directions: </h3><p>${recipeData.meals[0].strInstructions}</p>`);
+    var oldRecipeSTR = recipeData.meals[0].strInstructions;
+    var newRecipeStr;
+    var marker = 0;
+    for (var i = 0; i < oldRecipeSTR.length; i++) {
+        if (oldRecipeSTR[i] === ".") { 
+            newRecipeStr += oldRecipeSTR.slice(marker, i+1) + "<br>";
+            marker = i+1;
+        }
+    }
+    console.log(oldRecipeSTR);
+    $("#recipe").append(`<h3>Directions: </h3><p>${newRecipeStr}</p>`);
 };
 
 // Display random recipe.
-function recipeRandomInfo() {
+function displayRandomRecipe() {
     $("#recipe").empty();
     $("#recipe").append(`<img src=${randomData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`);
     $("#recipe").append(`<h1>${randomData.meals[0].strMeal}</h1>`);
@@ -122,7 +131,16 @@ function recipeRandomInfo() {
             $("#ingredient-list").append(`<li>${randomData.meals[0]["strIngredient" + (i+1)] + " - " + randomData.meals[0]["strMeasure" + (i+1)]}</li>`);
         }
     }
-    $("#recipe").append(`<h3>Directions: </h3><p>${randomData.meals[0].strInstructions}</p>`);
+    var oldRecipeSTR = randomData.meals[0].strInstructions;
+    var newRecipeStr;
+    var marker = 0;
+    for (var i = 0; i < oldRecipeSTR.length; i++) {
+        if (oldRecipeSTR[i] === ".") { 
+            newRecipeStr += oldRecipeSTR.slice(marker, i+1) + "<br>";
+            marker = i+1;
+        }
+    }
+    $("#recipe").append(`<h3>Directions: </h3><p>${newRecipeStr}</p>`);
 };
 
 ///// DISPLAY RESTAURANT INFO
@@ -149,29 +167,28 @@ $(".search-button").on("click", function (event) {
     event.preventDefault();
   
     getRecipe().then(function () {
-      showTitle();
-      showMealImg();
-      populateIngred();
-      showInstruction();
+        displayKeywordRecipe();
     })
-  });
+});
   
-  // I can't decide/random meals button 
-  $(".random-button").on("click", function (event) {
-    event.preventDefault();
-  
+// I can't decide/random meals button 
+$(".random-button").on("click", function (event) {
+event.preventDefault();
+
     getRandom().then(function () {
-      showRandomTitle();
-      showRandomMealImg();
-      populateRandomIngred();
-      showRandomInstruction();
+        displayRandomRecipe();
     });
-  })
-  
-  // search restaurant button 
-  $(".restaurant-button").on("click", function (event) {
-  
-  })
+});
+
+
+// search restaurant button 
+$(".restaurant-button").on("click", function (event) {
+event.preventDefault();
+
+    getRecipe().then(function () {
+        listRestaurants();
+    });
+});
 
 
 //-------------- //
@@ -180,16 +197,16 @@ $(".search-button").on("click", function (event) {
 // The functions below are temporary until the event listeners are operational. Just un-comment them to test functionality.
 
 ///// Get and display keyword recipe:
-// getRecipe().then(function() {
-//     recipeKeywordInfo();
-// });
+getRecipe().then(function() {
+    displayKeywordRecipe();
+});
 
 ///// Get and display random recipe:
 // getRandom().then(function() {
-//     recipeRandomInfo();
+//     displayRandomRecipe();
 // });
 
 ///// Get and display city restaurants:
-getCityInfo().then(getRestaurants).then(function() {
-    displayRestInfo();
-});
+// getCityInfo().then(getRestaurants).then(function() {
+//     displayRestInfo();
+// });
