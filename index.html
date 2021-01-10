@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html  class="no-js" lang="en">
+<html class="no-js" lang="en">
 
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
 		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" />
@@ -13,9 +13,8 @@
 		integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.min.css"
 		integrity="sha256-4ldVyEvC86/kae2IBWw+eJrTiwNEbUUTmN0zkP4luL4=" crossorigin="anonymous">
-	<link rel="stylesheet" 	href="https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.2.2/js/foundation.min.js/" >
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.2.2/js/foundation.min.js/">
+
 	<link rel="stylesheet" href="assets/style.css">
 	<title>What's for Dinner?</title>
 </head>
@@ -29,14 +28,54 @@
 		</div>
 		<nav>
 			<div class="topnav">
-				<a class="active" href="index.html">Food</a>
-				<a href="links.html">Links</a>
+
+				<ul class="vertical medium-horizontal menu">
+					<a class="nav-link active" aria-current="page" href="./index.html">Main Page</a>
+				</ul>
+
+				<a href="links.html"></a>
 			</div>
 		</nav>
 	</header>
 
+	<!-- start foundation template  -->
+	<!-- B starts here  -->
+	<!-- side by side and hover  -->
+
+	<div class="grid-x grid-padding-x">
+
+		<div class="cell small-4">
+			<div class="container" style="height: 551.97px; width:367.98px; padding: 1em">
+				<img src="./assets/search-cook.jpeg" alt="Cooking at home" class="image" style="width:100%">
+				<div class="middle">
+					<button class="button search-recipe">Search For Recipes</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="cell small-4">
+			<div class="container" style="height: 551.97px; width:367.98px; padding: 1em">
+				<img src="./assets/Random-img.jpeg" alt="I can cook anything" class="image" style="width:100%">
+				<div class="middle">
+					<button class="button random-button">I CAN'T DECIDE</button>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="cell small-4">
+			<div class="container" style="height: 551.97px; width:367.98px; padding: 1em">
+				<img src="./assets/Restaurant.jpeg" alt="Restaurant" class="image" style="width:100%">
+				<div class="middle">
+					<button class="button restaurant-button">I AM LAZY</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- this need to be clean up and only show when the button is clicked, for now it is staying -->
 	<!-- Search Bar -->
-	<section class="container-fluid">
+	<section class="container-fluid recipe-search-bar">
 		<div class="row">
 			<div class="translucent-form-overlay">
 				<form>
@@ -59,10 +98,8 @@
 	<section class="col-md-9 recipe-display">
 		<div class="row current">
 			<div class="col-12 border border-dark m-3 rounded">
-
 				<!-- Recipes display here. -->
 				<div id="recipe"></div>
-
 			</div>
 		</div>
 	</section>
@@ -73,52 +110,48 @@
 		<div id="restaurant"></div>
 	</section>
 
-	<!-- RANDOM BUTTON AND/OR FUN GIF IMAGE   -->
 
-	<div class="row">
-		<div class="col-12">
-			<h3>Gif/pictures</h3>
+
+	<!-- this is B's side by side cards but no hover  KEEP IT HERE AS REFERENCE FOR MARGIN -->
+	<!-- 
+<div class="grid-container">
+	<div class="grid-x grid-margin-x small-up-2 medium-up-3">
+
+		search for a recipe 
+		<div class="cell">
+			<div class="card">
+				<div class="card-section">
+					<button type="button" class="primary button search-button">
+						Look up a recipe
+					</button>
+				</div>
+				<img src="./assets/search-cook.jpeg">
+			</div>
+		</div>
+	RANDOM RECIPE  -->
+	<!-- <div class="cell">
+			<div class="card">
+				<div class="card-section">
+					<button type="button" class="primary button random-button">
+						I CAN'T DECIDE
+					</button>
+				</div>
+				<img src="./assets/Random-img.jpeg" id="pancake" style="height: 551.97px">
+			</div>
+		</div> -->
+	<!-- I AM LAZY SOMEONE COOK FOR ME  -->
+	<!-- <div class="cell">
+			<div class="card">
+				<div class="card-section">
+					<button type="button" class="primary button restaurant-button">
+						I AM FEELING LAZY
+					</button>
+				</div>
+				<img src="./assets/Restaurant.jpeg">
+			</div>
 		</div>
 	</div>
-	<div class="row ">
-		<button type="button" class="primary button random-button">
-			I CAN'T DECIDE
-		</button>
-
-	</div>
-
-	<!-- RESTAURANTS?  -->
-	<div class="row">
-
-		<button type="button" class="primary button restaurant-button">
-			I AM FEELING LAZY
-		</button>
-	</div>
-
-
-
-<!-- start foundation template  -->
-
-
-
-
-
-
-
-	<div class="row expand-column-wrapper">
-		<div class="collumn">
-			<p class="expand-column-content">Search for a Recipe</p>
-		</div>
-		<div class="collumn">
-			<p class="expand-column-content random-button">I CAN'T DECIDE</p>
-		</div>
-		<div class="collumn">
-			<p class="expand-column-content restaurant-button">I M FEELING LAZY </p>
-		</div>
-
-	</div>
-	
-
+</div> -->
 
 	<!-- Footer -->
 

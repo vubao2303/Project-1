@@ -197,6 +197,7 @@ function listRestaurants() {
 // Return list of all recipes.
 $(".search-button").on("click", function (event) {
     event.preventDefault();
+    $(".grid-x").empty();
     keywordSearch = $("#search-field").val();
     getRecipes().then(listRecipes);
     $("#search-field").val("");
@@ -204,6 +205,7 @@ $(".search-button").on("click", function (event) {
   
 // I can't decide/random meals button 
 $(".random-button").on("click", function (event) {
+    $(".grid-x").empty();
     event.preventDefault();
     getRandom().then(displayRandomRecipe);
 });
@@ -212,6 +214,7 @@ $(".random-button").on("click", function (event) {
 // search restaurant button (I am feeling lazy)
 $(".restaurant-button").on("click", function (event) {
     event.preventDefault();
+    $(".grid-x").empty();
     $("#recipe").empty();
     getCityInfo().then(getRestaurants).then(listRestaurants);
 
