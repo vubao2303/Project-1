@@ -87,9 +87,13 @@ function getRestaurants() {
 ///// FUNCTIONS /////
 //---------------- //
 
+// Validation
 function displayError() {
-    var validate = document.forms["keyword"].value;
-    
+    var validate = document.forms["searchForm"]["keyword"].value;
+    if (validate == "") {
+        alert("Please enter a valid search");
+        return false;
+    }
 }
 
 // Display a list of recipes based on keyword search.
