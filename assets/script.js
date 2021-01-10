@@ -5,7 +5,7 @@
 var recipeData; var randomData; var cityData; var restaurantData;
 
 // These variables apply to the searches.
-var keywordSearch; var entityID; var entityType; var recipeList = []; var recipeIndex;
+var keywordSearch; var cityName; var entityID; var entityType; var recipeList = []; var recipeIndex;
 
 // These variables are just for testing functionality until the event listeners are fully operational.
 var testPic = "pizza";
@@ -50,7 +50,7 @@ function getRandom() {
 // Query the Zomato database to get location details.
 function getCityInfo() {
     return $.ajax({
-        url: "https://developers.zomato.com/api/v2.1/locations?query=" + testCity,
+        url: "https://developers.zomato.com/api/v2.1/locations?query=" + cityName,
         headers: {"Accept": "application/json", "user-key": "19196cd7a5838aa26e070b8a475ef856"},
         method: "GET",
         cors: true,
@@ -81,6 +81,53 @@ function getRestaurants() {
     })
 }
 
+// Display recipe search form.
+function displayRecipeSearch() {
+    $("#search-form").append(`
+	<section class="container-fluid recipe-search-bar">
+		<div class="row">
+			<div class="translucent-form-overlay">
+				<form>
+					<h3>Search for a Recipe</h3>
+					<div class="row columns">
+						<label>Keyword
+							<input id="search-field" type="text" name="keyword" placeholder="Search by keyword ...">
+						</label>
+					</div>
+
+					<button id="recipe-list-button" type="button" class="primary button expanded search-button"><i class="fa fa-search"></i>
+
+					</button>
+				</form>
+			</div>
+		</div>
+	</section>
+    `)
+}
+
+// Display city search form.
+function displayCitySearch() {
+    $("#search-form").append(`
+	<section class="container-fluid recipe-search-bar">
+		<div class="row">
+			<div class="translucent-form-overlay">
+				<form>
+					<h3>Search for a City</h3>
+					<div class="row columns">
+						<label>Keyword
+							<input id="search-field" type="text" name="keyword" placeholder="City name ...">
+						</label>
+					</div>
+
+					<button id="city-button" type="button" class="primary button expanded search-button"><i class="fa fa-search"></i>
+
+					</button>
+				</form>
+			</div>
+		</div>
+	</section>
+    `)
+}
 
 
 //---------------- //
@@ -200,41 +247,55 @@ function listRestaurants() {
 ///// EVENT LISTENERS /////
 //---------------------- //
 
+///// FIND RECIPE /////
+// Create the recipe search form.
+$(".search-recipe").on("click", function (event) {
+    event.preventDefault();
+    $(".grid-x").empty();
+    $("#recipe").empty();
+    displayRecipeSearch();
+});
+
 // Return list of all recipes.
-$(".search-button").on("click", function (event) {
+$(document.body).on("click", "#recipe-list-button", function(event) {
     event.preventDefault();
     $(".grid-x").empty();
     keywordSearch = $("#search-field").val();
     getRecipes().then(listRecipes);
     $("#search-field").val("");
-});
+})
 
 // Get the recipe info for the user's choice.
 $(document.body).on("click", ".recipe-button", function(event) {
-    $("#recipe-list").empty();
     event.preventDefault();
+    $("#recipe-list").empty();
     recipeIndex = $(this).attr("value");
     displayKeywordRecipe(recipeIndex);
 });
-  
-// I can't decide/random meals button 
+
+///// I CAN'T DECIDE /////
+// Show the user a randomly generated recipe.
 $(".random-button").on("click", function (event) {
-    $(".grid-x").empty();
     event.preventDefault();
+    $(".grid-x").empty();
     getRandom().then(displayRandomRecipe);
 });
 
-
-// search restaurant button (I am feeling lazy)
+///// I'M FEELING LAZY /////
+// Create the city-search form.
 $(".restaurant-button").on("click", function (event) {
     event.preventDefault();
     $(".grid-x").empty();
     $("#recipe").empty();
+    displayCitySearch();
+});
+// Get the top rated restaurants for user city.
+$(document.body).on("click", "#city-button", function(event) {
+    event.preventDefault();
+    $("#restaurant-list").empty();
+    cityName = $("#search-field").val();
     getCityInfo().then(getRestaurants).then(listRestaurants);
-
-    // getRecipes().then(function () {
-    //     listRestaurants();
-    // });
+    $("#search-field").val("");
 });
 
 
