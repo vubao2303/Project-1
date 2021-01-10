@@ -18,9 +18,9 @@ var testCityID = "499";
 ///// API QUERIES /////
 //------------------ //
 // Query the MealDB database for a recipe from user search.
-function getRecipe() {
+function getRecipes() {
     return $.ajax({
-        url: "https://www.themealdb.com/api/json/v1/1/search.php?s=" + testFood,
+        url: "https://www.themealdb.com/api/json/v1/1/search.php?s=" + keywordSearch,
         method: "GET",
         cors: true,
         success: function(data) {
@@ -87,10 +87,31 @@ function getRestaurants() {
 ///// FUNCTIONS /////
 //---------------- //
 
+// Display a list of recipes based on keyword search.
+function listRecipes() {
+    $("#recipe").empty();
+    if (recipeData.meals === null) {
+        $("#recipe").append('<h3>Sorry, no results found. Please try again.</h3>');
+    } else {
+        for (var i = 0; i < 25; i++) {
+            // Add image and title.
+                $("#recipe").append(`
+                <div class="recipe-card">
+                    <div class="card-thumbnail">
+                        <img id="recipe-img" src=${recipeData.meals[i].strMealThumb} height="300" width="300" alt="mealImg">
+                    </div>
+                    <h2 class="card-title">${recipeData.meals[i].strMeal}</h2>
+                </div>
+                `) 
+            }  
+        }
+    }
+
 // Display keyword recipe.
 function displayKeywordRecipe() {
+    console.log("displayKeywordRecipe: " + recipeData);
     $("#recipe").empty();
-    $("#recipe").append(`<img src=${recipeData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`);
+    $("#recipe").append(`<img src=${recipeData.meals[0].strMealThumb} height="300" width="300" alt="mealImg">`);
     $("#recipe").append(`<h1>${recipeData.meals[0].strMeal}</h1>`);
     $("#recipe").append(`<button class= "button"> Save this recipe </button>`);
     $("#recipe").append(`<h3>Ingredients:</h3>`);
@@ -113,11 +134,13 @@ function displayKeywordRecipe() {
         }
     }
     newRecipeSTR = newRecipeSTR.replace("undefined1", "1");
+    newRecipeSTR = newRecipeSTR.replace("undefined", "");
     $("#recipe").append(`<h3>Directions: </h3><p>${newRecipeSTR}</p>`);
 };
 
 // Display random recipe.
 function displayRandomRecipe() {
+    console.log("displayRandomRecipe: " + randomData)
     $("#recipe").empty();
     $("#recipe").append(`<img src=${randomData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`);
     $("#recipe").append(`<h1>${randomData.meals[0].strMeal}</h1>`);
@@ -142,21 +165,11 @@ function displayRandomRecipe() {
         }
     }
     newRecipeSTR = newRecipeSTR.replace("undefined1", "1");
+    newRecipeSTR = newRecipeSTR.replace("undefined", "");
     $("#recipe").append(`<h3>Directions: </h3><p>${newRecipeSTR}</p>`);
 };
 
 ///// DISPLAY RESTAURANT INFO
-// Display name, cuisine type, address, and phone number.
-function displayRestInfo() {
-    $("#restaurant").empty();
-    $("#restaurant").append(`<h2>${restaurantData.best_rated_restaurant[0].restaurant.name}</h2>`);
-    $("#restaurant").append(`<p>Cuisine: ${restaurantData.best_rated_restaurant[0].restaurant.cuisines}</p>`);
-    $("#restaurant").append(`<p>Average cost for two: $${restaurantData.best_rated_restaurant[0].restaurant.average_cost_for_two}</p>`);
-    $("#restaurant").append(`<p>Address :${restaurantData.best_rated_restaurant[0].restaurant.location.address}</p>`)
-    $("#restaurant").append(`<p>Phone #: ${restaurantData.best_rated_restaurant[0].restaurant.phone_numbers}</p>`)
-    $("#restaurant").append(`<a href="${restaurantData.best_rated_restaurant[0].restaurant.url}">View Restaurant</a>`)
-}
-
 // List local restaurants.
 function listRestaurants() {
     $("#restaurant-list").empty();
@@ -180,25 +193,19 @@ function listRestaurants() {
 //---------------------- //
 ///// EVENT LISTENERS /////
 //---------------------- //
-// button 
-// Search Button 
+
+// Return list of all recipes.
 $(".search-button").on("click", function (event) {
     event.preventDefault();
-    $("#restaurant").empty();
-    $("#restaurant-list").empty();
-    getRecipe().then(function () {
-        displayKeywordRecipe();
-    })
+    keywordSearch = $("#search-field").val();
+    getRecipes().then(listRecipes);
+    $("#search-field").val("");
 });
   
 // I can't decide/random meals button 
 $(".random-button").on("click", function (event) {
-event.preventDefault();
-$("#restaurant").empty();
-$("#restaurant-list").empty();
-    getRandom().then(function () {
-        displayRandomRecipe();
-    });
+    event.preventDefault();
+    getRandom().then(displayRandomRecipe);
 });
 
 
@@ -206,11 +213,9 @@ $("#restaurant-list").empty();
 $(".restaurant-button").on("click", function (event) {
     event.preventDefault();
     $("#recipe").empty();
-    getCityInfo().then(getRestaurants).then(function() {
-        listRestaurants();
-    });
+    getCityInfo().then(getRestaurants).then(listRestaurants);
 
-    // getRecipe().then(function () {
+    // getRecipes().then(function () {
     //     listRestaurants();
     // });
 });
@@ -278,3 +283,4 @@ $(".restaurant-button").on("click", function (event) {
 //     $("#recipe").append(`<h3>Directions: </h3><p>${newRecipeSTR}</p>`)
 // )
 
+// });

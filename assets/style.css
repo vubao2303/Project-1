@@ -126,13 +126,18 @@
   color: #f39c12;
 }
 
-/***** RESTAURANT CARDS *****/
-.restaurant-card {
+/***** RESTAURANT & RECIPE CARDS *****/
+.restaurant-card, .recipe-card {
   background-color: white;
   border: 1px solid lightgray;
   padding: 1rem;
   margin-bottom: 1.5rem;
-  width: 30%;
+  width: 25%;
+}
+
+.card-thumbnail {
+  display: block;
+  position: relative;
 }
 
 .card-title {
