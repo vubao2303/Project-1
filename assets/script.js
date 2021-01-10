@@ -209,7 +209,7 @@ $(".search-button").on("click", function (event) {
 });
 
 // Get the recipe info for the user's choice.
-$(".recipe-button").on("click", function(event) {
+$(document.body).on("click", ".recipe-button", function(event) {
     $("#recipe-list").empty();
     event.preventDefault();
     recipeIndex = $(this).attr("value");
