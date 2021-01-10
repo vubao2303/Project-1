@@ -92,6 +92,7 @@ function displayKeywordRecipe() {
     $("#recipe").empty();
     $("#recipe").append(`<img src=${recipeData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`);
     $("#recipe").append(`<h1>${recipeData.meals[0].strMeal}</h1>`);
+    $("#recipe").append(`<button class= "button"> Save this recipe </button>`);
     $("#recipe").append(`<h3>Ingredients:</h3>`);
     var ingredList = $(`<ul id="ingredient-list"></ul>`);
     $("#recipe").append(ingredList);
@@ -120,6 +121,7 @@ function displayRandomRecipe() {
     $("#recipe").empty();
     $("#recipe").append(`<img src=${randomData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`);
     $("#recipe").append(`<h1>${randomData.meals[0].strMeal}</h1>`);
+    $("#recipe").append(`<button class= "button"> Save this recipe </button>`);
     $("#recipe").append(`<h3>Ingredients:</h3>`);
     var ingredList = $(`<ul id="ingredient-list"></ul>`);
     $("#recipe").append(ingredList);
@@ -157,6 +159,7 @@ function displayRestInfo() {
 
 // List local restaurants.
 function listRestaurants() {
+    $("#restaurant-list").empty();
     for (var i = 0; i < 10; i++) {
         $("#restaurant-list").append(`
         <div class="restaurant-card">
@@ -181,7 +184,8 @@ function listRestaurants() {
 // Search Button 
 $(".search-button").on("click", function (event) {
     event.preventDefault();
-  
+    $("#restaurant").empty();
+    $("#restaurant-list").empty();
     getRecipe().then(function () {
         displayKeywordRecipe();
     })
@@ -190,21 +194,33 @@ $(".search-button").on("click", function (event) {
 // I can't decide/random meals button 
 $(".random-button").on("click", function (event) {
 event.preventDefault();
-
+$("#restaurant").empty();
+$("#restaurant-list").empty();
     getRandom().then(function () {
         displayRandomRecipe();
     });
 });
 
 
-// search restaurant button 
+// search restaurant button (I am feeling lazy)
 $(".restaurant-button").on("click", function (event) {
-event.preventDefault();
-
-    getRecipe().then(function () {
+    event.preventDefault();
+    $("#recipe").empty();
+    getCityInfo().then(getRestaurants).then(function() {
         listRestaurants();
     });
+
+    // getRecipe().then(function () {
+    //     listRestaurants();
+    // });
 });
+
+
+// Save recipe button ()
+// $(".save-button").on("click", function (event) {
+//     event.preventDefault(); 
+//     function saveRecipe ();
+// });
 
 
 //-------------- //
@@ -228,6 +244,6 @@ event.preventDefault();
 // });
 
 ///// Get and display top rated restaurants.
-getCityInfo().then(getRestaurants).then(function() {
-    listRestaurants();
-});
+// getCityInfo().then(getRestaurants).then(function() {
+//     listRestaurants();
+// });
