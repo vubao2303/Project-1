@@ -5,7 +5,7 @@
 var recipeData; var randomData; var cityData; var restaurantData;
 
 // These variables apply to the searches.
-var keywordSearch; var entityID; var entityType;
+var keywordSearch; var entityID; var entityType; var recipeList = []; var recipeIndex;
 
 // These variables are just for testing functionality until the event listeners are fully operational.
 var testPic = "pizza";
@@ -89,42 +89,45 @@ function getRestaurants() {
 
 // Display a list of recipes based on keyword search.
 function listRecipes() {
-    $("#recipe").empty();
+    $("#recipe-list").empty();
     if (recipeData.meals === null) {
-        $("#recipe").append('<h3>Sorry, no results found. Please try again.</h3>');
+        $("#recipe-list").append('<h3>Sorry, no results found. Please try again.</h3>');
     } else {
         for (var i = 0; i < 25; i++) {
             // Add image and title.
-                $("#recipe").append(`
+            recipeList.push(recipeData.meals[i]);
+            var index = recipeList.indexOf(recipeData.meals[i]);
+            $("#recipe-list").append(`
                 <div class="recipe-card">
                     <div class="card-thumbnail">
                         <img id="recipe-img" src=${recipeData.meals[i].strMealThumb} height="300" width="300" alt="mealImg">
                     </div>
                     <h2 class="card-title">${recipeData.meals[i].strMeal}</h2>
+                    <button class="recipe-button" value=${index}>Select</button>
                 </div>
-                `) 
-            }  
+            `) 
         }
     }
+}
 
 // Display keyword recipe.
-function displayKeywordRecipe() {
-    console.log("displayKeywordRecipe: " + recipeData);
+function displayKeywordRecipe(recipeIndex) {
     $("#recipe").empty();
-    $("#recipe").append(`<img src=${recipeData.meals[0].strMealThumb} height="300" width="300" alt="mealImg">`);
-    $("#recipe").append(`<h1>${recipeData.meals[0].strMeal}</h1>`);
+    $("#recipe").append(`<img src=${recipeData.meals[recipeIndex].strMealThumb} height="300" width="300" alt="mealImg">`);
+    $("#recipe").append(`<h1>${recipeData.meals[recipeIndex].strMeal}</h1>`);
     $("#recipe").append(`<button class= "button"> Save this recipe </button>`);
     $("#recipe").append(`<h3>Ingredients:</h3>`);
     var ingredList = $(`<ul id="ingredient-list"></ul>`);
     $("#recipe").append(ingredList);
     for (var i = 0; i < 20; i++) {
-        if (recipeData.meals[0]["strIngredient" + (i+1)] === "" || null) {
+        if (recipeData.meals[recipeIndex]["strIngredient" + (i+1)] === "" || null) {
             continue;
         } else {
-            $("#ingredient-list").append(`<li>${recipeData.meals[0]["strIngredient" + (i+1)] + " - " + recipeData.meals[0]["strMeasure" + (i+1)]}</li>`);
+            $("#ingredient-list").append(`<li>${recipeData.meals[recipeIndex]["strIngredient" + (i+1)] + " - " + recipeData.meals[recipeIndex]["strMeasure" + (i+1)]}</li>`);
         }
     }
-    var oldRecipeSTR = recipeData.meals[0].strInstructions;
+    // Add a line break after each step in the directions.
+    var oldRecipeSTR = recipeData.meals[recipeIndex].strInstructions;
     var newRecipeSTR;
     var marker = 0;
     for (var i = 0; i < oldRecipeSTR.length; i++) {
@@ -133,6 +136,7 @@ function displayKeywordRecipe() {
             marker = i+1;
         }
     }
+    // Remove pesky 'undefined' occurences from directions string.
     newRecipeSTR = newRecipeSTR.replace("undefined1", "1");
     newRecipeSTR = newRecipeSTR.replace("undefined", "");
     $("#recipe").append(`<h3>Directions: </h3><p>${newRecipeSTR}</p>`);
@@ -155,6 +159,7 @@ function displayRandomRecipe() {
             $("#ingredient-list").append(`<li>${randomData.meals[0]["strIngredient" + (i+1)] + " - " + randomData.meals[0]["strMeasure" + (i+1)]}</li>`);
         }
     }
+    // Add a line break after each step in the directions.
     var oldRecipeSTR = randomData.meals[0].strInstructions;
     var newRecipeSTR;
     var marker = 0;
@@ -164,6 +169,7 @@ function displayRandomRecipe() {
             marker = i+1;
         }
     }
+    // Remove pesky 'undefined' occurences from directions string.
     newRecipeSTR = newRecipeSTR.replace("undefined1", "1");
     newRecipeSTR = newRecipeSTR.replace("undefined", "");
     $("#recipe").append(`<h3>Directions: </h3><p>${newRecipeSTR}</p>`);
@@ -201,6 +207,14 @@ $(".search-button").on("click", function (event) {
     getRecipes().then(listRecipes);
     $("#search-field").val("");
 });
+
+// Get the recipe info for the user's choice.
+$(".recipe-button").on("click", function(event) {
+    $("#recipe-list").empty();
+    event.preventDefault();
+    recipeIndex = $(this).attr("value");
+    displayKeywordRecipe(recipeIndex);
+});
   
 // I can't decide/random meals button 
 $(".random-button").on("click", function (event) {
@@ -227,31 +241,6 @@ $(".restaurant-button").on("click", function (event) {
 //     function saveRecipe ();
 // });
 
-
-//-------------- //
-///// EXECUTE /////
-//-------------- //
-// The functions below are temporary until the event listeners are operational. Just un-comment them to test functionality.
-
-///// Get and display keyword recipe:
-// getRecipe().then(function() {
-//     displayKeywordRecipe();
-// });
-
-///// Get and display random recipe:
-// getRandom().then(function() {
-//     displayRandomRecipe();
-// });
-
-///// Get and display city restaurants:
-// getCityInfo().then(getRestaurants).then(function() {
-//     displayRestInfo();
-// });
-
-///// Get and display top rated restaurants.
-// getCityInfo().then(getRestaurants).then(function() {
-//     listRestaurants();
-// });
 
 
 // Jessny styling recipe 
