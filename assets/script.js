@@ -87,6 +87,11 @@ function getRestaurants() {
 ///// FUNCTIONS /////
 //---------------- //
 
+function displayError() {
+    var validate = document.forms["keyword"].value;
+    
+}
+
 // Display a list of recipes based on keyword search.
 function listRecipes() {
     $("#recipe-list").empty();
