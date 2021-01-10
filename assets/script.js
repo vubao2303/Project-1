@@ -89,27 +89,29 @@ function getRestaurants() {
 
 // Display a list of recipes based on keyword search.
 function listRecipes() {
-    getRecipes().then(function() {
-        console.log("Function: " + recipeData);
-        $("#recipe-list").empty();
+    $("#recipe").empty();
+    if (recipeData.meals === null) {
+        $("#recipe").append('<h3>Sorry, no results found. Please try again.</h3>');
+    } else {
         for (var i = 0; i < 25; i++) {
             // Add image and title.
-            $("#recipe-list").append(`
-            <div class="recipe-card">
-                <div class="card-thumbnail">
-                    <img id="recipe-img" src="${recipeData.meals[i].strMealThumb}/>
+                $("#recipe").append(`
+                <div class="recipe-card">
+                    <div class="card-thumbnail">
+                        <img id="recipe-img" src=${recipeData.meals[i].strMealThumb} height="300" width="300" alt="mealImg">
+                    </div>
+                    <h2 class="card-title">${recipeData.meals[i].strMeal}</h2>
                 </div>
-                <h2 class="card-title">${recipeData.meals[i].strMeal}</h2>
-            </div>
-            `)   
+                `) 
+            }  
         }
-    })
-}
+    }
 
 // Display keyword recipe.
 function displayKeywordRecipe() {
+    console.log("displayKeywordRecipe: " + recipeData);
     $("#recipe").empty();
-    $("#recipe").append(`<img src=${recipeData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`);
+    $("#recipe").append(`<img src=${recipeData.meals[0].strMealThumb} height="300" width="300" alt="mealImg">`);
     $("#recipe").append(`<h1>${recipeData.meals[0].strMeal}</h1>`);
     $("#recipe").append(`<button class= "button"> Save this recipe </button>`);
     $("#recipe").append(`<h3>Ingredients:</h3>`);
@@ -138,6 +140,7 @@ function displayKeywordRecipe() {
 
 // Display random recipe.
 function displayRandomRecipe() {
+    console.log("displayRandomRecipe: " + randomData)
     $("#recipe").empty();
     $("#recipe").append(`<img src=${randomData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`);
     $("#recipe").append(`<h1>${randomData.meals[0].strMeal}</h1>`);
@@ -190,22 +193,19 @@ function listRestaurants() {
 //---------------------- //
 ///// EVENT LISTENERS /////
 //---------------------- //
-// button 
-// Search Button 
+
+// Return list of all recipes.
 $(".search-button").on("click", function (event) {
     event.preventDefault();
     keywordSearch = $("#search-field").val();
-    console.log("Keyword: " + keywordSearch);
-    listRecipes();
-    $("#search-field").text("");
+    getRecipes().then(listRecipes);
+    $("#search-field").val("");
 });
   
 // I can't decide/random meals button 
 $(".random-button").on("click", function (event) {
     event.preventDefault();
-    getRandom().then(function () {
-        displayRandomRecipe();
-    });
+    getRandom().then(displayRandomRecipe);
 });
 
 
@@ -213,10 +213,7 @@ $(".random-button").on("click", function (event) {
 $(".restaurant-button").on("click", function (event) {
     event.preventDefault();
     $("#recipe").empty();
-    getCityInfo().then(getRestaurants).then(function() {
-        listRestaurants();
-        
-    });
+    getCityInfo().then(getRestaurants).then(listRestaurants);
 
     // getRecipes().then(function () {
     //     listRestaurants();
@@ -228,30 +225,4 @@ $(".restaurant-button").on("click", function (event) {
 // $(".save-button").on("click", function (event) {
 //     event.preventDefault(); 
 //     function saveRecipe ();
-// });
-
-
-//-------------- //
-///// EXECUTE /////
-//-------------- //
-// The functions below are temporary until the event listeners are operational. Just un-comment them to test functionality.
-
-///// Get and display keyword recipes:
-// getRecipes().then(function() {
-//     listRecipes();
-// });
-
-///// Get and display random recipe:
-// getRandom().then(function() {
-//     displayRandomRecipe();
-// });
-
-///// Get and display city restaurants:
-// getCityInfo().then(getRestaurants).then(function() {
-//     displayRestInfo();
-// });
-
-///// Get and display top rated restaurants.
-// getCityInfo().then(getRestaurants).then(function() {
-//     listRestaurants();
 // });
