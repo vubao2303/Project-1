@@ -160,3 +160,15 @@
   display: block;
   margin-top: 0.8rem;
 }
+
+.restaurant-button {
+  background: url("https://images.pexels.com/photos/4913313/pexels-photo-4913313.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
+}
+
+.random-button {
+  background: url("https://images.pexels.com/photos/2113556/pexels-photo-2113556.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
+}
+
+.search-button {
+  background: url("https://images.pexels.com/photos/4252133/pexels-photo-4252133.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
+}
