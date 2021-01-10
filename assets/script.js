@@ -255,37 +255,6 @@ $(".restaurant-button").on("click", function (event) {
 
 
 
-// Jessny styling recipe
-// function displayKeywordRecipe() {
-//     $("#recipe").empty();
-//     $("#recipe").append(`<img src=${recipeData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`);
-//     $("#recipe").append(`<h1>${recipeData.meals[0].strMeal}</h1>`);
-//     $("#recipe").append(`<button class= "button"> Save this recipe </button>`);
-//     $("#recipe").append(`<h3>Ingredients:</h3>`);
-//     var ingredList = $(`<ul id="ingredient-list"></ul>`);
-//     $("#recipe").append(ingredList);
-//     for (var i = 0; i < 20; i++) {
-//         if (recipeData.meals[0]["strIngredient" + (i+1)] === "" || null) {
-//             continue;
-//         } else {
-//             $("#ingredient-list").append(`<li>${recipeData.meals[0]["strIngredient" + (i+1)] + " - " + recipeData.meals[0]["strMeasure" + (i+1)]}</li>`);
-//         }
-//     }
-//     var oldRecipeSTR = recipeData.meals[0].strInstructions;
-//     var newRecipeSTR;
-//     var marker = 0;
-//     for (var i = 0; i < oldRecipeSTR.length; i++) {
-//         if (oldRecipeSTR[i] === ".") { 
-//             newRecipeSTR += oldRecipeSTR.slice(marker, i+1) + "<br>";
-//             marker = i+1;
-//         }
-//     }
-//     newRecipeSTR = newRecipeSTR.replace("undefined1", "1");
-//     $("#recipe").append(`<h3>Directions: </h3><p>${newRecipeSTR}</p>`);
-// };
-
-
-
 
 
 
@@ -315,7 +284,7 @@ function displayRandomRecipe() {
     }
     newRecipeSTR = newRecipeSTR.replace("undefined1", "1");
     newRecipeSTR = newRecipeSTR.replace("undefined", "");
-    $("#recipe").append(`<h3>Directions: </h3><p>${newRecipeSTR}</p>`);
+    $("#recipe").append(`<h3 id="dirRand" >Directions: </h3><p>${newRecipeSTR}</p>`);
     $("#recipe").append(`<button id="random-button" class= "button"> Save this recipe </button>`);
 
 };

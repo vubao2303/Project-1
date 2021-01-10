@@ -186,11 +186,28 @@
   display: block;
   font-size: 46px;
   text-align: center;
-  font-family: Georgia;
+  font-family: 'Trocchi', serif;
+  background: #F5F5F5;
+  font-weight: bolder;
 }
 
 #random-button {
   font-family: Arial;
   font-size: medium;
   border-radius: 8px;
+}
+
+#random-ingred {
+  font-weight: bold;
+  background: #F5F5F5;
+  border: #F5F5F5;
+}
+
+ul {
+  list-style: none;
+}
+
+#dirRand {
+  font-weight: bold;
+  background: #F5F5F5;
 }
