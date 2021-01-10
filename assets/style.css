@@ -126,13 +126,18 @@
   color: #f39c12;
 }
 
-/***** RESTAURANT CARDS *****/
-.restaurant-card {
+/***** RESTAURANT & RECIPE CARDS *****/
+.restaurant-card, .recipe-card {
   background-color: white;
   border: 1px solid lightgray;
   padding: 1rem;
   margin-bottom: 1.5rem;
-  width: 30%;
+  width: 25%;
+}
+
+.card-thumbnail {
+  display: block;
+  position: relative;
 }
 
 .card-title {
@@ -166,4 +171,26 @@
 
 .search-button {
   background: url("https://images.pexels.com/photos/4252133/pexels-photo-4252133.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
+}
+
+
+/* Styling Random Recipe Box */
+#random-recipe {
+  display: block;
+  margin: 10px auto;
+  max-width: 400px;
+  border-radius: 4px;
+}
+
+#randomTitle {
+  display: block;
+  font-size: 46px;
+  text-align: center;
+  font-family: Georgia;
+}
+
+#random-button {
+  font-family: Arial;
+  font-size: medium;
+  border-radius: 8px;
 }
