@@ -193,7 +193,7 @@ function displayKeywordRecipe(recipeIndex) {
 function displayRandomRecipe() {
     console.log("displayRandomRecipe: " + randomData)
     $("#recipe").empty();
-    $("#recipe").append(`<img id="random-recipe" src=${randomData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`);
+    $("#recipe").append(`<img id="random-recipe" src=${randomData.meals[0].strMealThumb} alt="mealImg" >`);
     $("#recipe").append(`<h1 id="randomTitle" >${randomData.meals[0].strMeal}</h1>`);
     $("#recipe").append(`<h3 id="random-ingred" >Ingredients:</h3>`);
     var ingredList = $(`<ul id="ingredient-list"></ul>`);
