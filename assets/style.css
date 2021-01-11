@@ -1,7 +1,8 @@
 /* header */
 .headerSection {
-  background: url("https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
+  background: url("https://images.pexels.com/photos/1853003/pexels-photo-1853003.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
     50% no-repeat;
+    opacity: 60%;
   background-size: cover;
   height: 60vh;
   text-align: center;
@@ -14,16 +15,21 @@
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+
 }
-.headerSection .header-section-text {
-  color: #fefefe;
-  text-shadow: 1px 1px 2px #0a0a0a;
+
+.big-title {
+  font-size: 75px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color:#fefefe;
+  opacity: 100%;
 }
+
 
 /* Footer */
 
 #lab_social_icon_footer {
-  padding: 40px 0;
+  padding: 10px 0;
   background-color: #dedede;
 }
 
@@ -161,6 +167,9 @@
   margin-top: 0.8rem;
 }
 
+
+
+
 /* B trying to make the button hover */
 
 /* making the button hover on  the image of cooking  */
@@ -215,7 +224,74 @@
 body {
   background-color:rgb(10, 8, 8);
 }
-#recipe {
-color: rgb(213, 202, 202);
-};
 
+a {
+  font-size: 20px;
+  font-family: 'Fraunces', serif;
+  color: whitesmoke;
+  font-weight: bold;
+}
+h2{
+font-family: 'Fraunces', serif;
+color: whitesmoke;
+}
+h3{
+  font-family: 'Pacifico', cursive;
+  color:whitesmoke;
+}
+footer {
+  text-align: center;
+}
+
+/* Styling Random Recipe Box */
+#random-recipe {
+  display: block;
+  margin: 10px auto;
+  max-width: 300px;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+#randomTitle {
+  display: block;
+  font-size: 46px;
+  text-align: center;
+  font-family: 'Trocchi', serif;
+  background: #bddfeb;
+  font-weight: bolder;
+  color: black;
+}
+
+#random-button {
+  font-family: Arial;
+  font-size: medium;
+  border-radius: 8px;
+ background:#bddfeb;
+ color: black;
+ float: right;
+ font-weight: bold;
+}
+
+#random-ingred {
+  font-weight: bold;
+  background: #bddfeb;
+}
+
+ul {
+  list-style: none;
+}
+
+#dirRand {
+  font-weight: bold;
+  background: #bddfeb;
+}
+
+#recipe {
+background: lightgrey;
+  width: 70%;
+  margin: auto;
+  padding: 60px;
+  padding-bottom: 60px;
+
+}
