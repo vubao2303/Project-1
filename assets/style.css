@@ -26,11 +26,10 @@
 }
 
 
-
 /* Footer */
 
 #lab_social_icon_footer {
-  padding: 40px 0;
+  padding: 10px 0;
   background-color: #dedede;
 }
 
@@ -168,9 +167,7 @@
   margin-top: 0.8rem;
 }
 
-/* New changes below */
-/* .restaurant-button {
-  background: url("https://images.pexels.com/photos/4913313/pexels-photo-4913313.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500") */
+
 
 
 /* B trying to make the button hover */
@@ -228,6 +225,24 @@ body {
   background-color:rgb(10, 8, 8);
 }
 
+a {
+  font-size: 20px;
+  font-family: 'Fraunces', serif;
+  color: whitesmoke;
+  font-weight: bold;
+}
+h2{
+font-family: 'Fraunces', serif;
+color: whitesmoke;
+}
+h3{
+  font-family: 'Pacifico', cursive;
+  color:whitesmoke;
+}
+footer {
+  text-align: center;
+}
+
 /* Styling Random Recipe Box */
 #random-recipe {
   display: block;
@@ -280,5 +295,3 @@ background: lightgrey;
   padding-bottom: 60px;
 
 }
-
-
