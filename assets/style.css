@@ -161,9 +161,9 @@
   margin-top: 0.8rem;
 }
 
-/* New changes below */
+/* New changes below
 .restaurant-button {
-  background: url("https://images.pexels.com/photos/4913313/pexels-photo-4913313.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
+  background: url("https://images.pexels.com/photos/4913313/pexels-photo-4913313.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500") */
 
 
 /* B trying to make the button hover */
@@ -271,6 +271,6 @@ background: #F5F5F5;
   background: black;
 }
 
-#recipe {
+/* #recipe {
 color: rgb(213, 202, 202);
-};
+}; */
