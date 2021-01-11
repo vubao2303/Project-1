@@ -1,20 +1,27 @@
 /* header */
 .headerSection {
-  background: url("https://images.pexels.com/photos/1853003/pexels-photo-1853003.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
-    50% no-repeat;
-  opacity: 60%;
+  /* background: url("https://images.pexels.com/photos/1853003/pexels-photo-1853003.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
+    50% no-repeat; */
+  /* opacity: 60%; */
+  background: url("cook-food-kitchen-eat-54455 2.jpeg")
+    100% no-repeat;
+   
   background-size: cover;
-  height: 60vh;
-  text-align: center;
+  height: 80vh;
+  /* text-align: center; */
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
+  /* -webkit-align-items: center; */
+  /* -ms-flex-align: center; */
+  /* align-items: center; */
+  /* -webkit-justify-content: center; */
+  /* -ms-flex-pack: center; */
   justify-content: center;
+  margin-top: 1em;
+
+
+  
 
 }
 
@@ -23,6 +30,7 @@
   font-family: Georgia, 'Times New Roman', Times, serif;
   color:#fefefe;
   opacity: 100%;
+  margin-top: 1em;
 }
 
 
