@@ -132,15 +132,21 @@ function displayCitySearch() {
 
 function displayError() {
     $("display-error").append(`
-    <div class="reveal mobile-ios-modal" id="mobile-ios-modal-2" data-reveal>
-        <div class="mobile-ios-modal-inner">
-            <p>Your password does not match our records. Please re-enter your password.</p>
-        </div>
- 
-    <div class="mobile-ios-modal-options">
-        <button data-close class="button">Cancel</button>
-     <button class="button">Ok</button>
+    <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Modal Header</h2>
+    </div>
+    <div class="modal-body">
+      <p>Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
   </div>
+
 </div>
     `)
 }
@@ -237,24 +243,24 @@ function displayRandomRecipe() {
 
 /// DISPLAY RESTAURANT INFO
 // List local restaurants.
-// function listRestaurants() {
-//     $("#restaurant-list").empty();
-//     for (var i = 0; i < 10; i++) {
-//         $("#restaurant-list").append(`
-//         <div class="restaurant-card">
-//             <h2 class="card-title">${restaurantData.best_rated_restaurant[i].restaurant.name}</h2><br>
-//             <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i].restaurant.cuisines}</p>
-//             <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i].restaurant.average_cost_for_two}</p>
-//             <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i].restaurant.location.address}</p>
-//             <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i].restaurant.phone_numbers}</p>
-//             <div class="card-link">
-//                 <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
-//             </div>
-//         </div>
-//         `)
-//     }
+function listRestaurants() {
+    $("#restaurant-list").empty();
+    for (var i = 0; i < 10; i++) {
+        $("#restaurant-list").append(`
+        <div class="restaurant-card">
+            <h2 class="card-title">${restaurantData.best_rated_restaurant[i].restaurant.name}</h2><br>
+            <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i].restaurant.cuisines}</p>
+            <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i].restaurant.average_cost_for_two}</p>
+            <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i].restaurant.location.address}</p>
+            <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i].restaurant.phone_numbers}</p>
+            <div class="card-link">
+                <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
+            </div>
+        </div>
+        `)
+    }
 
-// }
+}
 
 //---------------------- //
 ///// EVENT LISTENERS /////
