@@ -160,10 +160,9 @@ function listRecipes() {
 // Display keyword recipe.
 function displayKeywordRecipe(recipeIndex) {
     $("#recipe").empty();
-    $("#recipe").append(`<img src=${recipeData.meals[recipeIndex].strMealThumb} height="300" width="300" alt="mealImg">`);
-    $("#recipe").append(`<h1>${recipeData.meals[recipeIndex].strMeal}</h1>`);
-    $("#recipe").append(`<button class= "button"> Save this recipe </button>`);
-    $("#recipe").append(`<h3>Ingredients:</h3>`);
+    $("#recipe").append(`<img id="keyimg" src=${recipeData.meals[recipeIndex].strMealThumb} height="300" width="300" alt="mealImg">`);
+    $("#recipe").append(`<h1 id="key-title">${recipeData.meals[recipeIndex].strMeal}</h1>`);
+    $("#recipe").append(`<h3 id="key-ing">Ingredients:</h3>`);
     var ingredList = $(`<ul id="ingredient-list"></ul>`);
     $("#recipe").append(ingredList);
     for (var i = 0; i < 20; i++) {
@@ -186,7 +185,7 @@ function displayKeywordRecipe(recipeIndex) {
     // Remove pesky 'undefined' occurences from directions string.
     newRecipeSTR = newRecipeSTR.replace("undefined1", "1");
     newRecipeSTR = newRecipeSTR.replace("undefined", "");
-    $("#recipe").append(`<h3>Directions: </h3><p>${newRecipeSTR}</p>`);
+    $("#recipe").append(`<h3 id="dirKey">Directions: </h3><p>${newRecipeSTR}</p>`);
 };
 
 // Display random recipe.
@@ -216,31 +215,29 @@ function displayRandomRecipe() {
     }
     newRecipeSTR = newRecipeSTR.replace("undefined1", "1");
     newRecipeSTR = newRecipeSTR.replace("undefined", "");
-    $("#recipe").append(`<h3 id="dirRand" >Directions: </h3><p>${newRecipeSTR}</p>`);
-    $("#recipe").append(`<button id="random-button" class= "button"> Save this recipe </button>`);
-
+    $("#recipe").append(`<h3 id="dirRand" >Directions: </h3><p>${newRecipeSTR}</p>`);  
 };
 
 ///// DISPLAY RESTAURANT INFO
 // List local restaurants.
-function listRestaurants() {
-    $("#restaurant-list").empty();
-    for (var i = 0; i < 10; i++) {
-        $("#restaurant-list").append(`
-        <div class="restaurant-card">
-            <h2 class="card-title">${restaurantData.best_rated_restaurant[i].restaurant.name}</h2><br>
-            <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i].restaurant.cuisines}</p>
-            <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i].restaurant.average_cost_for_two}</p>
-            <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i].restaurant.location.address}</p>
-            <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i].restaurant.phone_numbers}</p>
-            <div class="card-link">
-                <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
-            </div>
-        </div>
-        `)
-    }
+// function listRestaurants() {
+//     $("#restaurant-list").empty();
+//     for (var i = 0; i < 10; i++) {
+//         $("#restaurant-list").append(`
+//         <div class="restaurant-card">
+//             <h2 class="card-title">${restaurantData.best_rated_restaurant[i].restaurant.name}</h2><br>
+//             <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i].restaurant.cuisines}</p>
+//             <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i].restaurant.average_cost_for_two}</p>
+//             <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i].restaurant.location.address}</p>
+//             <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i].restaurant.phone_numbers}</p>
+//             <div class="card-link">
+//                 <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
+//             </div>
+//         </div>
+//         `)
+//     }
 
-}
+// }
 
 //---------------------- //
 ///// EVENT LISTENERS /////
@@ -303,3 +300,43 @@ $(document.body).on("click", "#city-button", function(event) {
 //     event.preventDefault(); 
 //     function saveRecipe ();
 // });
+
+// function listRestaurants() {
+//     $("#restaurant-list").empty();
+//     for (var i = 0; i < 10; i++) {
+//         $("#restaurant-list").append(`
+//         <div class="grid-container">
+//         <div class="grid-x grid-margin-x small-up-2 medium-up-3">
+//         <div class="cell">
+//          <div class="card restaurant-card">
+//          <div class="card-section">
+//             <h2 class="card-title">${restaurantData.best_rated_restaurant[i + 1].restaurant.name}</h2><br>
+//             <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i + 1].restaurant.cuisines}</p>
+//             <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i + 1].restaurant.average_cost_for_two}</p>
+//             <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i + 1].restaurant.location.address}</p>
+//             <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i + 1].restaurant.phone_numbers}</p>
+//             <div class="card-link">
+//                 <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
+//             </div>
+//         </div>
+//         </div>
+//         </div>
+//         </div>
+//         </div>
+        
+//         `)
+//     }
+
+// }
+
+
+/* <div class="grid-x grid-margin-x small-up-2 medium-up-3">
+  <div class="cell">
+    <div class="card">
+      <img src="assets/img/generic/rectangle-1.jpg">
+      <div class="card-section">
+        <h4>This is a row of cards.</h4>
+        <p>This row of cards is embedded in an Flex Block Grid.</p>
+      </div>
+    </div>
+  </div> */
