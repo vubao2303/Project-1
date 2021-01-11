@@ -50,22 +50,6 @@
 
   
 
-/* .headerSection {
-  background: url("https://images.pexels.com/photos/33242/cooking-ingredient-cuisine-kitchen.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500") 50% no-repeat;
-  background-size: cover;
-  height: 60vh;
-  text-align: center;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-} */
-
 .headerSection .header-section-text {
   color: #fefefe;
   text-shadow: 1px 1px 2px #0a0a0a;
@@ -134,11 +118,11 @@
 
 /***** RESTAURANT & RECIPE CARDS *****/
 .restaurant-card, .recipe-card {
-  background-color: white;
+  background-color: pink;
   border: 1px solid lightgray;
   padding: 1rem;
-  margin-bottom: 1.5rem;
-  width: 25%;
+  margin: 1.5rem;
+  width: 100%;
 }
 
 .card-thumbnail {
@@ -153,6 +137,7 @@
   line-height: 1.45rem;
   margin-top: 1rem;
   margin-bottom: 0;
+  color: black;
 }
 
 .card-desc {
@@ -231,20 +216,23 @@ a {
   color: whitesmoke;
   font-weight: bold;
 }
-h2{
+
+h2 {
 font-family: 'Fraunces', serif;
 color: whitesmoke;
 }
-h3{
+
+h3 {
   font-family: 'Pacifico', cursive;
   color:whitesmoke;
 }
+
 footer {
   text-align: center;
 }
 
 /* Styling Random Recipe Box */
-#random-recipe {
+#random-recipe, #keyimg {
   display: block;
   margin: 10px auto;
   max-width: 300px;
@@ -253,42 +241,37 @@ footer {
   margin-bottom: 30px;
 }
 
-#randomTitle {
+#randomTitle, #key-title {
   display: block;
   font-size: 46px;
   text-align: center;
   font-family: 'Trocchi', serif;
-  background: #bddfeb;
+  /* background:  #3d0c02; */
   font-weight: bolder;
   color: black;
 }
 
-#random-button {
-  font-family: Arial;
-  font-size: medium;
-  border-radius: 8px;
- background:#bddfeb;
- color: black;
- float: right;
- font-weight: bold;
-}
 
-#random-ingred {
+#random-ingred, #key-ing {
   font-weight: bold;
-  background: #bddfeb;
+  background: #ba8759;
+  color: black;
+  font-weight: lighter;
 }
 
-ul {
+#ingredient-list, #ingredient-list {
   list-style: none;
 }
 
-#dirRand {
+#dirRand, #dirKey {
   font-weight: bold;
-  background: #bddfeb;
+  background: #ba8759;
+  color: black;
+  font-weight: lighter;
 }
 
 #recipe {
-background: lightgrey;
+background:#F6F6F6;
   width: 70%;
   margin: auto;
   padding: 60px;
