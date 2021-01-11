@@ -134,11 +134,11 @@
 
 /***** RESTAURANT & RECIPE CARDS *****/
 .restaurant-card, .recipe-card {
-  background-color: white;
+  background-color: pink;
   border: 1px solid lightgray;
   padding: 1rem;
-  margin-bottom: 1.5rem;
-  width: 25%;
+  margin: 1.5rem;
+  width: 100%;
 }
 
 .card-thumbnail {
@@ -153,6 +153,7 @@
   line-height: 1.45rem;
   margin-top: 1rem;
   margin-bottom: 0;
+  color: black;
 }
 
 .card-desc {
@@ -288,7 +289,7 @@ ul {
 }
 
 #recipe {
-background: lightgrey;
+background:#F6F6F6;
   width: 70%;
   margin: auto;
   padding: 60px;
