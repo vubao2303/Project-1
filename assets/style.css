@@ -41,7 +41,6 @@
 
 
 /* Search Box */
-
 .headerSection .header-section-text {
   color: #fefefe;
   text-shadow: 1px 1px 2px #0a0a0a;
@@ -53,6 +52,7 @@
   background-color: rgba(54, 54, 54, 0.8);
   padding: 20px;
   color: #fefefe;
+  margin: auto;
 }
 
 .translucent-form-overlay .columns.row {
@@ -162,6 +162,7 @@
 .container {
   position: relative;
   width: 50%;
+  margin: auto;
 }
 
 .image {
