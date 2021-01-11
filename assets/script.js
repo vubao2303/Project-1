@@ -220,24 +220,24 @@ function displayRandomRecipe() {
 
 /// DISPLAY RESTAURANT INFO
 // List local restaurants.
-// function listRestaurants() {
-//     $("#restaurant-list").empty();
-//     for (var i = 0; i < 10; i++) {
-//         $("#restaurant-list").append(`
-//         <div class="restaurant-card">
-//             <h2 class="card-title">${restaurantData.best_rated_restaurant[i].restaurant.name}</h2><br>
-//             <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i].restaurant.cuisines}</p>
-//             <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i].restaurant.average_cost_for_two}</p>
-//             <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i].restaurant.location.address}</p>
-//             <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i].restaurant.phone_numbers}</p>
-//             <div class="card-link">
-//                 <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
-//             </div>
-//         </div>
-//         `)
-//     }
+function listRestaurants() {
+    $("#restaurant-list").empty();
+    for (var i = 0; i < 10; i++) {
+        $("#restaurant-list").append(`
+        <div class="restaurant-card">
+            <h2 class="card-title">${restaurantData.best_rated_restaurant[i].restaurant.name}</h2><br>
+            <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i].restaurant.cuisines}</p>
+            <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i].restaurant.average_cost_for_two}</p>
+            <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i].restaurant.location.address}</p>
+            <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i].restaurant.phone_numbers}</p>
+            <div class="card-link">
+                <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
+            </div>
+        </div>
+        `)
+    }
 
-// }
+}
 
 //---------------------- //
 ///// EVENT LISTENERS /////
@@ -301,36 +301,36 @@ $(document.body).on("click", "#city-button", function(event) {
 //     function saveRecipe ();
 // });
 
-function listRestaurants() {
-    $("#restaurant-list").empty();
-    for (var i = 0; i < 10; i++) {
-        $("#restaurant-list").append(`
-        <div class="grid-container">
-        <div class="row"
-        <div class="columns medium-4">
-        <div class="grid-x grid-margin-x small-up-2 medium-up-3">
-        <div class="cell">
-         <div class="card restaurant-card">
-         <div class="card-section">
-            <h2 class="card-title">${restaurantData.best_rated_restaurant[i + 1].restaurant.name}</h2><br>
-            <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i + 1].restaurant.cuisines}</p>
-            <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i + 1].restaurant.average_cost_for_two}</p>
-            <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i + 1].restaurant.location.address}</p>
-            <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i + 1].restaurant.phone_numbers}</p>
-            <div class="card-link">
-                <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
-            </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        `)
-    }
+// function listRestaurants() {
+//     $("#restaurant-list").empty();
+//     for (var i = 0; i < 10; i++) {
+//         $("#restaurant-list").append(`
+//         <div class="grid-container">
+//         <div class="row"
+//         <div class="columns medium-4">
+//         <div class="grid-x grid-margin-x small-up-2 medium-up-3">
+//         <div class="cell">
+//          <div class="card restaurant-card">
+//          <div class="card-section">
+//             <h2 class="card-title">${restaurantData.best_rated_restaurant[i + 1].restaurant.name}</h2><br>
+//             <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i + 1].restaurant.cuisines}</p>
+//             <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i + 1].restaurant.average_cost_for_two}</p>
+//             <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i + 1].restaurant.location.address}</p>
+//             <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i + 1].restaurant.phone_numbers}</p>
+//             <div class="card-link">
+//                 <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
+//             </div>
+//         </div>
+//         </div>
+//         </div>
+//         </div>
+//         </div>
+//         </div>
+//         </div>
+//         `)
+//     }
 
-}
+// }
 
 
 /* <div class="grid-x grid-margin-x small-up-2 medium-up-3">

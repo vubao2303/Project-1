@@ -232,7 +232,7 @@ footer {
 
 #random-ingred, #key-ing {
   font-weight: bold;
-  background: #ba8759;
+  background: #83572b;
   color: black;
   font-weight: lighter;
 }
@@ -243,7 +243,7 @@ footer {
 
 #dirRand, #dirKey {
   font-weight: bold;
-  background: #ba8759;
+  background:#83572b;
   color: black;
   font-weight: lighter;
   margin-left: 60px;
@@ -263,3 +263,6 @@ background:#F6F6F6;
   margin-right: 60px;
   padding-bottom: 60px;
 }
+
+
+
