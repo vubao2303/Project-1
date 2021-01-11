@@ -87,7 +87,7 @@ function displayRecipeSearch() {
 	<section class="container-fluid recipe-search-bar">
 		<div class="row">
 			<div class="translucent-form-overlay">
-                <form name="searchForm">
+                <form>
 					<h3>Search for a Recipe</h3>
 					<div class="row columns">
 						<label>Keyword
@@ -109,7 +109,7 @@ function displayCitySearch() {
 	<section class="container-fluid recipe-search-bar">
 		<div class="row">
 			<div class="translucent-form-overlay">
-				<form name="searchForm">
+				<form>
 					<h3>Search for a City</h3>
 					<div class="row columns">
 						<label>Keyword
@@ -145,7 +145,8 @@ function displayError() {
 function listRecipes() {
     $("#recipe-list").empty();
     if (recipeData.meals === null) {
-        $("#recipe-list").append('<h3>Sorry, no results found. Please try again.</h3>');
+        alert("Please enter a valid search");
+        return false;
     } else {
         for (var i = 0; i < 25; i++) {
             // Add image and title.
