@@ -243,7 +243,6 @@ function displayRandomRecipe() {
 //---------------------- //
 ///// EVENT LISTENERS /////
 //---------------------- //
-<<<<<<< HEAD
 
 ///// FIND RECIPE /////
 // Create the recipe search form.
@@ -262,7 +261,6 @@ $(document.body).on("click", "#recipe-list-button", function(event) {
     getRecipes().then(listRecipes);
     $("#search-field").val("");
 })
-=======
 // button 
 // Search Button 
 $(".search-button").on("click", function (event) {
@@ -292,7 +290,6 @@ $(".search-button").on("click", function (event) {
   $(".restaurant-button").on("click", function (event) {
   
   })
->>>>>>> 8042f04232eb920f27e074a7f36e93030ed4a6e1
 
 // Get the recipe info for the user's choice.
 $(document.body).on("click", ".recipe-button", function(event) {
