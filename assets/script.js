@@ -132,11 +132,7 @@ function displayCitySearch() {
 
 // Validation
 function displayError() {
-    var validate = document.forms["searchForm"]["keyword"].value;
-    if (validate == "") {
-        alert("Please enter a valid search");
-        return false;
-    }
+    $("display-error")
 }
  
 
@@ -145,8 +141,7 @@ function displayError() {
 function listRecipes() {
     $("#recipe-list").empty();
     if (recipeData.meals === null) {
-        alert("Please enter a valid search");
-        return false;
+        $("#recipe-list").append('<h3>Sorry, no results found. Please try again.</h3>');
     } else {
         for (var i = 0; i < 25; i++) {
             // Add image and title.
