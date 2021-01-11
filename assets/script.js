@@ -94,9 +94,7 @@ function displayRecipeSearch() {
 							<input id="search-field" type="text" name="keyword" placeholder="Search by keyword ...">
 						</label>
 					</div>
-
 					<button id="recipe-list-button" type="button" class="primary button expanded search-button"><i class="fa fa-search"></i>
-
 					</button>
 				</form>
 			</div>
@@ -118,9 +116,7 @@ function displayCitySearch() {
 							<input id="search-field" type="text" name="keyword" placeholder="City name ...">
 						</label>
 					</div>
-
 					<button id="city-button" type="button" class="primary button expanded search-button"><i class="fa fa-search"></i>
-
 					</button>
 				</form>
 			</div>
@@ -142,6 +138,8 @@ function displayError() {
         return false;
     }
 }
+ 
+
 
 // Display a list of recipes based on keyword search.
 function listRecipes() {
