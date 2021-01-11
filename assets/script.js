@@ -225,6 +225,84 @@ function displayRandomRecipe() {
 
 /// DISPLAY RESTAURANT INFO
 // List local restaurants.
+// function listRestaurants() {
+//     $("#restaurant-list").empty();
+//     for (var i = 0; i < 10; i++) {
+//         $("#restaurant-list").append(`
+//         <div class="restaurant-card">
+//             <h2 class="card-title">${restaurantData.best_rated_restaurant[i].restaurant.name}</h2><br>
+//             <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i].restaurant.cuisines}</p>
+//             <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i].restaurant.average_cost_for_two}</p>
+//             <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i].restaurant.location.address}</p>
+//             <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i].restaurant.phone_numbers}</p>
+//             <div class="card-link">
+//                 <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
+//             </div>
+//         </div>
+//         `)
+//     }
+
+// }
+
+//---------------------- //
+///// EVENT LISTENERS /////
+//---------------------- //
+//// FIND RECIPE
+// Create the recipe search form.
+$(".search-recipe").on("click", function (event) {
+    event.preventDefault();
+    $(".grid-x").empty();
+    $("#recipe").empty();
+    displayRecipeSearch();
+});
+// Return list of all recipes.
+$(document.body).on("click", "#recipe-list-button", function(event) {
+    event.preventDefault();
+    $(".grid-x").empty();
+    keywordSearch = $("#search-field").val();
+    getRecipes().then(listRecipes);
+    $("#search-field").val("");
+})
+// Get the recipe info for the user's choice.
+$(document.body).on("click", ".recipe-button", function(event) {
+    event.preventDefault();
+    $("#recipe-list").empty();
+    recipeIndex = $(this).attr("value");
+    displayKeywordRecipe(recipeIndex);
+});
+///// I CAN'T DECIDE
+// Show the user a randomly generated recipe.
+$(".random-button").on("click", function (event) {
+    event.preventDefault();
+    $(".grid-x").empty();
+    getRandom().then(displayRandomRecipe);
+});
+///// I'M FEELING LAZY
+// Create the city-search form.
+$(".restaurant-button").on("click", function (event) {
+    event.preventDefault();
+    $(".grid-x").empty();
+    $("#recipe").empty();
+    displayCitySearch();
+});
+// Get the top rated restaurants for user city.
+$(document.body).on("click", "#city-button", function(event) {
+    event.preventDefault();
+    $("#restaurant-list").empty();
+    cityName = $("#search-field").val();
+    getCityInfo().then(getRestaurants).then(listRestaurants);
+    $("#search-field").val("");
+});
+
+
+
+// Save recipe button ()
+// $(".save-button").on("click", function (event) {
+//     event.preventDefault(); 
+//     function saveRecipe ();
+// });
+
+
 function listRestaurants() {
     $("#restaurant-list").empty();
     for (var i = 0; i < 10; i++) {
@@ -244,244 +322,8 @@ function listRestaurants() {
 
 }
 
-//---------------------- //
-///// EVENT LISTENERS /////
-//---------------------- //
-
-///// FIND RECIPE /////
-// Create the recipe search form.
-$(".search-recipe").on("click", function (event) {
-
-    event.preventDefault();
-    $(".grid-x").empty();
-    $("#recipe").empty();
-    displayRecipeSearch();
-});
-
-// Return list of all recipes.
-$(document.body).on("click", "#recipe-list-button", function(event) {
-    event.preventDefault();
-    $(".grid-x").empty();
-    keywordSearch = $("#search-field").val();
-    getRecipes().then(listRecipes);
-    $("#search-field").val("");
-})
-// button 
-// Search Button 
-$(".search-button").on("click", function (event) {
-
-    event.preventDefault();
-    $(".grid-x").empty();
-    $("#recipe").empty();
-    displayRecipeSearch();
-});
-
-// Return list of all recipes.
-$(document.body).on("click", "#recipe-list-button", function(event) {
-    event.preventDefault();
-    $(".grid-x").empty();
-    keywordSearch = $("#search-field").val();
-    getRecipes().then(listRecipes);
-    $("#search-field").val("");
-})
-
-// Get the recipe info for the user's choice.
-$(document.body).on("click", ".recipe-button", function(event) {
-    event.preventDefault();
-    $("#recipe-list").empty();
-    recipeIndex = $(this).attr("value");
-    displayKeywordRecipe(recipeIndex);
-});
-
-///// I CAN'T DECIDE /////
-// Show the user a randomly generated recipe.
-$(".random-button").on("click", function (event) {
-    event.preventDefault();
-    $(".grid-x").empty();
-    getRandom().then(displayRandomRecipe);
-});
-
-///// I'M FEELING LAZY /////
-// Create the city-search form.
-$(".restaurant-button").on("click", function (event) {
-    event.preventDefault();
-    $(".grid-x").empty();
-    $("#recipe").empty();
-    displayCitySearch();
-});
-// Get the top rated restaurants for user city.
-$(document.body).on("click", "#city-button", function(event) {
-    event.preventDefault();
-
-  
-    getRandom().then(function () {
-      showRandomTitle();
-      showRandomMealImg();
-      populateRandomIngred();
-      showRandomInstruction();
-    });
-  })
-  
-  // search restaurant button 
-  $(".restaurant-button").on("click", function (event) {
-  
-  })
-
-// Get the recipe info for the user's choice.
-$(document.body).on("click", ".recipe-button", function(event) {
-    event.preventDefault();
-    $("#recipe-list").empty();
-    recipeIndex = $(this).attr("value");
-    displayKeywordRecipe(recipeIndex);
-});
-
-///// I CAN'T DECIDE /////
-// Show the user a randomly generated recipe.
-$(".random-button").on("click", function (event) {
-    event.preventDefault();
-    $(".grid-x").empty();
-    getRandom().then(displayRandomRecipe);
-});
-
-///// I'M FEELING LAZY /////
-// Create the city-search form.
-// $(".restaurant-button").on("click", function (event) {
-//     event.preventDefault();
-//     $(".grid-x").empty();
-//     $("#recipe").empty();
-//     displayCitySearch();
-
-//     $("#restaurant-list").empty();
-//     cityName = $("#search-field").val();
-//     getCityInfo().then(getRestaurants).then(listRestaurants);
-//     $("#search-field").val("");
-
-// });
-// Get the top rated restaurants for user city.
-$(document.body).on("click", "#city-button", function(event) {
-    event.preventDefault();
-    $("#restaurant-list").empty();
-    cityName = $("#search-field").val();
-    getCityInfo().then(getRestaurants).then(listRestaurants);
-    $("#search-field").val("");
-});
 
 
-// Save recipe button ()
-// $(".save-button").on("click", function (event) {
-//     event.preventDefault(); 
-//     function saveRecipe ();
-// });
 
-// function listRestaurants() {
-//     $("#restaurant-list").empty();
-//     for (var i = 0; i < 10; i++) {
-//         $("#restaurant-list").append(`
-//         <div class="grid-container">
-//         <div class="row"
-//         <div class="columns medium-4">
-//         <div class="grid-x grid-margin-x small-up-2 medium-up-3">
-//         <div class="cell">
-//          <div class="card restaurant-card">
-//          <div class="card-section">
-//             <h2 class="card-title">${restaurantData.best_rated_restaurant[i + 1].restaurant.name}</h2><br>
-//             <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i + 1].restaurant.cuisines}</p>
-//             <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i + 1].restaurant.average_cost_for_two}</p>
-//             <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i + 1].restaurant.location.address}</p>
-//             <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i + 1].restaurant.phone_numbers}</p>
-//             <div class="card-link">
-//                 <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
-//             </div>
-//         </div>
-//         </div>
-//         </div>
-//         </div>
-//         </div>
-//         </div>
-//         </div>
-//         `)
-//     }
-
-
-//         <div class="row"
-//         <div class="columns medium-4">
-
-//         <div class="grid-x grid-margin-x small-up-2 medium-up-3">
-//         <div class="cell">
-//          <div class="card restaurant-card">
-//          <div class="card-section">
-
-//             <h2 class="card-title">${restaurantData.best_rated_restaurant[i].restaurant.name}</h2><br>
-//             <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i].restaurant.cuisines}</p>
-
-//             <h2 class="card-title">${restaurantData.best_rated_restaurant[i + 1].restaurant.name}</h2><br>
-//             <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i + 1].restaurant.cuisines}</p>
-
-//             <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i + 1].restaurant.average_cost_for_two}</p>
-//             <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i + 1].restaurant.location.address}</p>
-//             <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i + 1].restaurant.phone_numbers}</p>
-//             <div class="card-link">
-//                 <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
-//             </div>
-//         </div>
-//         </div>
-//         </div>
-//         </div>
-//         </div>
-
-//         </div>
-//         </div>
-        
-
-//         `)
-//     }
-
-
-// Save recipe button ()
-// $(".save-button").on("click", function (event) {
-//     event.preventDefault(); 
-//     function saveRecipe ();
-// });
-
-// function listRestaurants() {
-//     $("#restaurant-list").empty();
-//     for (var i = 0; i < 10; i++) {
-//         $("#restaurant-list").append(`
-//         <div class="grid-container">
-
-//         <div class="row"
-//         <div class="columns medium-4">
-
-//         <div class="grid-x grid-margin-x small-up-2 medium-up-3">
-//         <div class="cell">
-//          <div class="card restaurant-card">
-//          <div class="card-section">
-
-//             <h2 class="card-title">${restaurantData.best_rated_restaurant[i].restaurant.name}</h2><br>
-//             <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i].restaurant.cuisines}</p>
-
-//             <h2 class="card-title">${restaurantData.best_rated_restaurant[i + 1].restaurant.name}</h2><br>
-//             <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i + 1].restaurant.cuisines}</p>
-
-//             <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i + 1].restaurant.average_cost_for_two}</p>
-//             <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i + 1].restaurant.location.address}</p>
-//             <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i + 1].restaurant.phone_numbers}</p>
-//             <div class="card-link">
-//                 <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
-//             </div>
-//         </div>
-//         </div>
-//         </div>
-//         </div>
-//         </div>
-
-//         </div>
-//         </div>
-        
-
-//         `)
-//     }
-
-// }
 
 

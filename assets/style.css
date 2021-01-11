@@ -102,14 +102,13 @@
 
 /***** RESTAURANT & RECIPE CARDS *****/
 .restaurant-card, .recipe-card {
-
-
   background-color: lightgray;
   border: 1px solid lightgray;
   padding: 1rem;
   margin: 1.5rem;
   width: 30%;
 }
+
 .recipe-card  {
   float: left;
   width: 25%;
@@ -117,8 +116,7 @@
   margin-left: 3em;
 }
 
-
-.restaurant-card{
+.restaurant-card {
   float: left;
   width: 25%;
   padding:10px;
@@ -139,7 +137,6 @@
   margin-top: 1rem;
   margin-bottom: 0;
   color: black;
-
   text-align: center;
 
 }
