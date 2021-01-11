@@ -1,6 +1,7 @@
 // ---------------------- //
 ///// GLOBAL VARIABLES /////
 // ---------------------- //
+
 // These variables hold the JSON data.
 var recipeData; var randomData; var cityData; var restaurantData;
 
@@ -11,6 +12,7 @@ var keywordSearch; var cityName; var entityID; var entityType; var recipeList = 
 //------------------ //
 ///// API QUERIES /////
 //------------------ //
+
 // Query the MealDB database for a recipe from user search.
 function getRecipes() {
     return $.ajax({
@@ -238,6 +240,7 @@ function listRestaurants() {
 //---------------------- //
 ///// EVENT LISTENERS /////
 //---------------------- //
+
 ///// FIND RECIPE
 // Create the recipe search form.
 $(".search-recipe").on("click", function (event) {
