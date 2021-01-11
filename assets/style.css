@@ -1,22 +1,19 @@
 /* header */
 .headerSection {
-  /* background: url("https://images.pexels.com/photos/1853003/pexels-photo-1853003.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
-    50% no-repeat; */
-  /* opacity: 60%; */
   background: url("cook-food-kitchen-eat-54455 2.jpeg")
     100% no-repeat;
    
   background-size: cover;
-  height: 80vh;
+  height: 60vh;
   /* text-align: center; */
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   /* -webkit-align-items: center; */
-  /* -ms-flex-align: center; */
+  -ms-flex-align: center;
   /* align-items: center; */
-  /* -webkit-justify-content: center; */
-  /* -ms-flex-pack: center; */
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
   margin-top: 1em;
 
@@ -45,8 +42,9 @@
   color: #333;
 }
 
-  
+
 /* Search Box */
+
 .headerSection .header-section-text {
   color: #fefefe;
   text-shadow: 1px 1px 2px #0a0a0a;
@@ -107,7 +105,10 @@
 
 /***** RESTAURANT & RECIPE CARDS *****/
 .restaurant-card, .recipe-card {
-  background-color:	#F5F5F5;
+
+
+  background-color: pink;
+
   border: 1px solid lightgray;
   padding: 1rem;
   margin: 1.5rem;
@@ -127,7 +128,9 @@
   margin-top: 1rem;
   margin-bottom: 0;
   color: black;
+
   text-align: center;
+
 }
 
 .card-desc {
@@ -219,7 +222,10 @@ footer {
 }
 
 
-/* Styling random recipe and search for recipe */
+
+
+/* Styling Random Recipe Box */
+
 #random-recipe, #keyimg {
   display: block;
   margin: 10px auto;
@@ -234,9 +240,11 @@ footer {
   font-size: 46px;
   text-align: center;
   font-family: 'Trocchi', serif;
+
   font-weight: bolder;
   color: black;
 }
+
 
 #random-ingred, #key-ing {
   font-weight: bold;
@@ -254,8 +262,11 @@ footer {
   background:#83572b;
   color: black;
   font-weight: lighter;
+
   margin-left: 60px;
   margin-right: 60px;
+  text-align: center;
+
 }
 
 #recipe {
@@ -272,5 +283,21 @@ background:#F6F6F6;
   padding-bottom: 60px;
 }
 
+#random-ingred, #key-ing {
+  margin-left: 60px;
+  margin-right: 60px;
+  text-align: center;
+  
+}
+#ingredient-list{
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
 
+/* #keyimg, */
 
+/* #random-recipe{
+  margin-top: 600px;
+} */
