@@ -87,7 +87,7 @@ function displayRecipeSearch() {
 	<section class="container-fluid recipe-search-bar">
 		<div class="row">
 			<div class="translucent-form-overlay">
-				<form>
+                <form name="searchForm">
 					<h3>Search for a Recipe</h3>
 					<div class="row columns">
 						<label>Keyword
@@ -109,7 +109,7 @@ function displayCitySearch() {
 	<section class="container-fluid recipe-search-bar">
 		<div class="row">
 			<div class="translucent-form-overlay">
-				<form>
+				<form name="searchForm">
 					<h3>Search for a City</h3>
 					<div class="row columns">
 						<label>Keyword
