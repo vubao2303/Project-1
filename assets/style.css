@@ -20,6 +20,7 @@
   text-shadow: 1px 1px 2px #0a0a0a;
 }
 
+
 /* Footer */
 
 #lab_social_icon_footer {
@@ -161,9 +162,7 @@
   margin-top: 0.8rem;
 }
 
-/* New changes below
-.restaurant-button {
-  background: url("https://images.pexels.com/photos/4913313/pexels-photo-4913313.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500") */
+
 
 
 /* B trying to make the button hover */
@@ -225,8 +224,10 @@ body {
 #random-recipe {
   display: block;
   margin: 10px auto;
-  max-width: 400px;
+  max-width: 300px;
   border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 #randomTitle {
@@ -264,13 +265,9 @@ ul {
 
 #recipe {
 background: #F5F5F5;
-  width: 600px;
-}
+  width: 70%;
+  margin: auto;
+  padding: 60px;
+  padding-bottom: 60px;
 
-.recipe-card {
-  background: black;
 }
-
-/* #recipe {
-color: rgb(213, 202, 202);
-}; */
