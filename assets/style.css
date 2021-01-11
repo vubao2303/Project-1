@@ -1,20 +1,21 @@
 /* header */
 .headerSection {
-  background: url("https://images.pexels.com/photos/1853003/pexels-photo-1853003.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
-    50% no-repeat;
-    opacity: 60%;
+  background: url("cook-food-kitchen-eat-54455 2.jpeg")
+    100% no-repeat;
+   
   background-size: cover;
   height: 60vh;
-  text-align: center;
+  /* text-align: center; */
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
+  /* -webkit-align-items: center; */
   -ms-flex-align: center;
-  align-items: center;
+  /* align-items: center; */
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  margin-top: 1em;
 
 }
 
@@ -23,6 +24,7 @@
   font-family: Georgia, 'Times New Roman', Times, serif;
   color:#fefefe;
   opacity: 100%;
+  margin-top: 1em;
 }
 
 
@@ -37,18 +39,8 @@
   color: #333;
 }
 
-/* #lab_social_icon_footer .social:hover {
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -o-transform: scale(1.1);
-}
 
-#lab_social_icon_footer .social {
-  -webkit-transform: scale(0.8);
-  /* Browser Variations: */
-*/
-
-  
+/* Search Box */
 
 .headerSection .header-section-text {
   color: #fefefe;
@@ -89,17 +81,8 @@
   color: #8a8a8a;
 }
 
-/* 
-  -moz-transform: scale(0.8);
-  -o-transform: scale(0.8);
-  -webkit-transition-duration: 0.5s;
-  -moz-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-} */
-/*
-    Multicoloured Hover Variations
-*/
 
+/* Footer color change when hover */
 #lab_social_icon_footer #social-fb:hover {
   color: #3b5998;
 }
@@ -116,35 +99,57 @@
   color: #f39c12;
 }
 
+
 /***** RESTAURANT & RECIPE CARDS *****/
 .restaurant-card, .recipe-card {
-  background-color: pink;
+
+
+  background-color: lightgray;
   border: 1px solid lightgray;
   padding: 1rem;
   margin: 1.5rem;
-  width: 100%;
+  width: 30%;
+}
+.recipe-card  {
+  float: left;
+  width: 25%;
+  padding:10px;
+  margin-left: 3em;
+}
+
+
+.restaurant-card{
+  float: left;
+  width: 25%;
+  padding:10px;
+  margin-left: 3em;
 }
 
 .card-thumbnail {
   display: block;
   position: relative;
+  text-align: center;
 }
 
 .card-title {
   font-family: "Open sans", sans-serif;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: bold;
   line-height: 1.45rem;
   margin-top: 1rem;
   margin-bottom: 0;
   color: black;
+
+  text-align: center;
+
 }
 
 .card-desc {
-  color: darkgray;
+  color: black;
   display: block;
   font-family: "Open sans", sans-serif;
   font-size: 0.85rem;
+  text-align: center;
 }
 
 .card-link {
@@ -153,12 +158,7 @@
 }
 
 
-
-
-/* B trying to make the button hover */
-
-/* making the button hover on  the image of cooking  */
-
+/* making the button hover on the image of cooking  */
 .container {
   position: relative;
   width: 50%;
@@ -198,6 +198,7 @@
   font-size: 16px;
   padding: 16px 32px;
 }
+
 .card:hover .image {
   opacity: 0.3;
 }
@@ -231,7 +232,11 @@ footer {
   text-align: center;
 }
 
+
+
+
 /* Styling Random Recipe Box */
+
 #random-recipe, #keyimg {
   display: block;
   margin: 10px auto;
@@ -246,7 +251,7 @@ footer {
   font-size: 46px;
   text-align: center;
   font-family: 'Trocchi', serif;
-  /* background:  #3d0c02; */
+
   font-weight: bolder;
   color: black;
 }
@@ -268,13 +273,42 @@ footer {
   background: #ba8759;
   color: black;
   font-weight: lighter;
+
+  margin-left: 60px;
+  margin-right: 60px;
+  text-align: center;
+
 }
 
 #recipe {
 background:#F6F6F6;
   width: 70%;
   margin: auto;
-  padding: 60px;
-  padding-bottom: 60px;
-
+ /* padding: 60px; */
+  /* padding-bottom: 60px;  */
 }
+
+#dirpad {
+  margin-left: 60px;
+  margin-right: 60px;
+  padding-bottom: 60px;
+}
+
+#random-ingred, #key-ing {
+  margin-left: 60px;
+  margin-right: 60px;
+  text-align: center;
+  
+}
+#ingredient-list{
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* #keyimg, */
+
+/* #random-recipe{
+  margin-top: 600px;
+} */
