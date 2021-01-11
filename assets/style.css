@@ -4,16 +4,16 @@
     100% no-repeat;
    
   background-size: cover;
-  height: 80vh;
+  height: 60vh;
   /* text-align: center; */
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   /* -webkit-align-items: center; */
-  /* -ms-flex-align: center; */
+  -ms-flex-align: center;
   /* align-items: center; */
-  /* -webkit-justify-content: center; */
-  /* -ms-flex-pack: center; */
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
   margin-top: 1em;
 
@@ -42,35 +42,8 @@
   color: #333;
 }
 
-/* #lab_social_icon_footer .social:hover {
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -o-transform: scale(1.1);
-}
-
-#lab_social_icon_footer .social {
-  -webkit-transform: scale(0.8);
-  /* Browser Variations: */
-*/
-
   
-
-/* .headerSection {
-  background: url("https://images.pexels.com/photos/33242/cooking-ingredient-cuisine-kitchen.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500") 50% no-repeat;
-  background-size: cover;
-  height: 60vh;
-  text-align: center;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-} */
-
+/* Search Box */
 .headerSection .header-section-text {
   color: #fefefe;
   text-shadow: 1px 1px 2px #0a0a0a;
@@ -110,17 +83,8 @@
   color: #8a8a8a;
 }
 
-/* 
-  -moz-transform: scale(0.8);
-  -o-transform: scale(0.8);
-  -webkit-transition-duration: 0.5s;
-  -moz-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-} */
-/*
-    Multicoloured Hover Variations
-*/
 
+/* Footer color change when hover */
 #lab_social_icon_footer #social-fb:hover {
   color: #3b5998;
 }
@@ -137,13 +101,14 @@
   color: #f39c12;
 }
 
+
 /***** RESTAURANT & RECIPE CARDS *****/
 .restaurant-card, .recipe-card {
-  background-color: white;
+  background-color:	#F5F5F5;
   border: 1px solid lightgray;
   padding: 1rem;
-  margin-bottom: 1.5rem;
-  width: 25%;
+  margin: 1.5rem;
+  width: 100%;
 }
 
 .card-thumbnail {
@@ -154,17 +119,20 @@
 .card-title {
   font-family: "Open sans", sans-serif;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: bold;
   line-height: 1.45rem;
   margin-top: 1rem;
   margin-bottom: 0;
+  color: black;
+  text-align: center;
 }
 
 .card-desc {
-  color: darkgray;
+  color: black;
   display: block;
   font-family: "Open sans", sans-serif;
   font-size: 0.85rem;
+  text-align: center;
 }
 
 .card-link {
@@ -173,12 +141,7 @@
 }
 
 
-
-
-/* B trying to make the button hover */
-
-/* making the button hover on  the image of cooking  */
-
+/* making the button hover on the image of cooking  */
 .container {
   position: relative;
   width: 50%;
@@ -218,6 +181,7 @@
   font-size: 16px;
   padding: 16px 32px;
 }
+
 .card:hover .image {
   opacity: 0.3;
 }
@@ -236,20 +200,24 @@ a {
   color: whitesmoke;
   font-weight: bold;
 }
-h2{
+
+h2 {
 font-family: 'Fraunces', serif;
 color: whitesmoke;
 }
-h3{
+
+h3 {
   font-family: 'Pacifico', cursive;
   color:whitesmoke;
 }
+
 footer {
   text-align: center;
 }
 
-/* Styling Random Recipe Box */
-#random-recipe {
+
+/* Styling random recipe and search for recipe */
+#random-recipe, #keyimg {
   display: block;
   margin: 10px auto;
   max-width: 300px;
@@ -258,45 +226,65 @@ footer {
   margin-bottom: 30px;
 }
 
-#randomTitle {
+#randomTitle, #key-title {
   display: block;
   font-size: 46px;
   text-align: center;
   font-family: 'Trocchi', serif;
-  background: #bddfeb;
   font-weight: bolder;
   color: black;
 }
 
-#random-button {
-  font-family: Arial;
-  font-size: medium;
-  border-radius: 8px;
- background:#bddfeb;
- color: black;
- float: right;
- font-weight: bold;
-}
-
-#random-ingred {
+#random-ingred, #key-ing {
   font-weight: bold;
-  background: #bddfeb;
+  background: #ba8759;
+  color: black;
+  font-weight: lighter;
 }
 
-ul {
+#ingredient-list, #ingredient-list {
   list-style: none;
 }
 
-#dirRand {
+#dirRand, #dirKey {
   font-weight: bold;
-  background: #bddfeb;
+  background: #ba8759;
+  color: black;
+  font-weight: lighter;
+  margin-left: 60px;
+  margin-right: 60px;
+  text-align: center;
 }
 
 #recipe {
-background: lightgrey;
+background:#F6F6F6;
   width: 70%;
   margin: auto;
-  padding: 60px;
-  padding-bottom: 60px;
-
+ /* padding: 60px; */
+  /* padding-bottom: 60px;  */
 }
+
+#dirpad {
+  margin-left: 60px;
+  margin-right: 60px;
+  padding-bottom: 60px;
+}
+
+#random-ingred, #key-ing {
+  margin-left: 60px;
+  margin-right: 60px;
+  text-align: center;
+  
+}
+#ingredient-list{
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* #keyimg, */
+
+/* #random-recipe{
+  margin-top: 600px;
+} */
