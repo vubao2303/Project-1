@@ -1,7 +1,8 @@
 /* header */
 .headerSection {
-  background: url("https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
+  background: url("https://images.pexels.com/photos/1853003/pexels-photo-1853003.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
     50% no-repeat;
+    opacity: 60%;
   background-size: cover;
   height: 60vh;
   text-align: center;
@@ -14,11 +15,16 @@
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+
 }
-.headerSection .header-section-text {
-  color: #fefefe;
-  text-shadow: 1px 1px 2px #0a0a0a;
+
+.big-title {
+  font-size: 75px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color:#fefefe;
+  opacity: 100%;
 }
+
 
 
 /* Footer */
@@ -237,15 +243,16 @@ body {
   font-size: 46px;
   text-align: center;
   font-family: 'Trocchi', serif;
-  background: #E0EEE0;
+  background: #bddfeb;
   font-weight: bolder;
+  color: black;
 }
 
 #random-button {
   font-family: Arial;
   font-size: medium;
   border-radius: 8px;
- background: #E0EEE0;
+ background:#bddfeb;
  color: black;
  float: right;
  font-weight: bold;
@@ -253,7 +260,7 @@ body {
 
 #random-ingred {
   font-weight: bold;
-  background: #E0EEE0;
+  background: #bddfeb;
 }
 
 ul {
@@ -262,11 +269,11 @@ ul {
 
 #dirRand {
   font-weight: bold;
-  background: #E0EEE0;
+  background: #bddfeb;
 }
 
 #recipe {
-background: #F5F5F5;
+background: lightgrey;
   width: 70%;
   margin: auto;
   padding: 60px;
