@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 # What's for Dinner? 
 As a person who needs to eat everyday, I would like some help with cooking or deciding what to eat. I want to have many choices of recipes, and when I can't decide on what to eat I will have a chance to pick a random recipe. On the day I don't feel like cooking or following recipes, I want to go out to eat, or in this COVID-19 seasons, get some to go from restaurant near me, I will be present with the top ten restaurant in my city. 
+=======
+# Project-1 What for Dinner? 
+
+As a person who needs to eat everyday, I would like some help with cooking or deciding what to eat. I want to have many choices of recipes, and when I can't decide on what to eat I will have a chance to pick a random recipe. If I see something I like, I would like to save it so I could recreate that meal for next time. On the day I don't feel like cooking or following recipes, I want to go out to eat, or in this COVID-19 seasons, get some to go from restaurant near me. 
+>>>>>>> 8042f04232eb920f27e074a7f36e93030ed4a6e1
 
 ## Site Picture
 ![Site](assets/readmeimg/header.png)
@@ -46,6 +52,15 @@ As a person who needs to eat everyday, I would like some help with cooking or de
   <li> Name variables as pointer to html file and for functions 
   <li> Create event listener for buttons to generate recipe info, recipe lists, and restaurant list
   <li> Validate user input 
+  <li> Create HTML in semantic style 
+    
+* In Javascript file 
+  <ul>
+  <li>Name variables for different objects and function 
+  <li>Set current date and time using Jquery 
+  <li>Use on click function for save button to save user input in local storage 
+  <li>Go throught the loops of objects by using the for loop to get the value of ingridients 
+  <li>Apply JSON.stringify funtion to add into storage and JSON.parse to get items to the page
   </li>
   </ul>
 * In Style.Css file 
@@ -59,6 +74,7 @@ As a person who needs to eat everyday, I would like some help with cooking or de
   </li>
   </ul>
 ## Code Snippet
+<<<<<<< HEAD
 Name contents using variables 
 ```javascript
 var APIKey = "563492ad6f91700001000001f270577a46c942ff96c8a4e60398816d";
@@ -106,14 +122,78 @@ $(document.body).on("click", ".recipe-button", function(event) {
     recipeIndex = $(this).attr("value");
     displayKeywordRecipe(recipeIndex);
 });
+=======
+```
+  <li>Style time blocks base on past hours, present hour, and future hours
+  <li>Add style to save button with save icon and color  
+  <li>Color headers and titles
+  <li>Adjust texts, margin, and padding 
+  </li>
+  </ul>
+```
+Apply real live hour to the page 
+```javascript
+$('#currentDay').text(moment().format('dddd') + ", " + moment().format('MMMM Do YYYY, h:mm:ss a'));
+```
+Have all the events and functions in ready function to execute the code when the DOM is ready 
+```javascript
+$(document).ready(function(){
+    if(!localStorage.getItem('plans')) {
+      updatePlans(plans);
+    } else {
+      updatePlans(JSON.parse(localStorage.getItem('plans')));
+    }
+  })
+
+```
+Name contents using variables 
+```javascript
+
+var APIKey = "563492ad6f91700001000001f270577a46c942ff96c8a4e60398816d";
+var recipeSTR = JSON.stringify(data);
+```
+Use on click function to attaches on click event to button element
+```javascript 
+$("saveBtn").click(function() {
+var plans = {
+    "9:00": "",
+    "10:00": "",
+    "11:00": "",
+    "12:00": "",
+    "13:00": "",
+    "14:00": "",
+    "15:00": "",
+    "16:00": "",
+    "17:00": "",
+  };
+```
+Use addEventListener function to attaches on click event to button element
+```javascript 
+$("saveBtn").click(function() {
+    value = $(this).siblings("textarea").val();
+    hourvalue = $(this).siblings("div").text();
+    saveSchedule(hourvalue, value);
+  });
+>>>>>>> 8042f04232eb920f27e074a7f36e93030ed4a6e1
   ```
 Use conditional statement to place recipe in html accordingly 
   ```javascript 
+<<<<<<< HEAD
      if (randomData.meals[0]["strIngredient" + (i+1)] === "" || null) {
             continue;
         } else {
             $("#ingredient-list").append(`<li>${randomData.meals[0]["strIngredient" + (i+1)] + " - " + randomData.meals[0]["strMeasure" + (i+1)]}</li>`);
         }
+=======
+  if(timeNumber < presentHour) {
+      $(textEntry).addClass("past");
+
+    } else if (timeNumber > presentHour) {
+      $(textEntry).addClass("future");
+    } else {
+      $(textEntry).addClass("present");
+    }
+>>>>>>> 8042f04232eb920f27e074a7f36e93030ed4a6e1
   ```
 
 
@@ -125,6 +205,8 @@ Use conditional statement to place recipe in html accordingly
   * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 - Javascript - gives interacticve elements to web pages
   * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- Bootstrap - design and customize responsive site
+  * [Bootstrap](https://getbootstrap.com/)
 - Jquery - use API to makes DOM traversal, manipulation, event handling, etc. simpler
   * [Jquery](https://jquery.com/)
 - Git - version control system to track changes to source code
@@ -162,3 +244,5 @@ Use conditional statement to place recipe in html accordingly
 ## License
 
 © 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+
+© 2021 TheMealDB. All Rights Reserved
