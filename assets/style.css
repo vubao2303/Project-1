@@ -41,7 +41,6 @@
 
 
 /* Search Box */
-
 .headerSection .header-section-text {
   color: #fefefe;
   text-shadow: 1px 1px 2px #0a0a0a;
@@ -53,6 +52,7 @@
   background-color: rgba(54, 54, 54, 0.8);
   padding: 20px;
   color: #fefefe;
+  margin: auto;
 }
 
 .translucent-form-overlay .columns.row {
@@ -162,6 +162,7 @@
 .container {
   position: relative;
   width: 50%;
+  margin: auto;
 }
 
 .image {
@@ -259,7 +260,7 @@ footer {
 
 #random-ingred, #key-ing {
   font-weight: bold;
-  background: #ba8759;
+  background: #83572b;
   color: black;
   font-weight: lighter;
 }
@@ -270,7 +271,7 @@ footer {
 
 #dirRand, #dirKey {
   font-weight: bold;
-  background: #ba8759;
+  background:#83572b;
   color: black;
   font-weight: lighter;
 
@@ -307,8 +308,8 @@ background:#F6F6F6;
   margin-bottom: 30px;
 }
 
-/* #keyimg, */
 
+<<<<<<< HEAD
 /* #random-recipe{
   margin-top: 600px;
 } */
@@ -370,3 +371,6 @@ background:#F6F6F6;
   background-color: #5cb85c;
   color: white;
 }
+=======
+
+>>>>>>> 0a92e33f579fef0a654822dc48038574013e2ddf
