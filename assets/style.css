@@ -119,6 +119,7 @@
 .restaurant-card {
   float: left;
   width: 25%;
+  height: 300px;
   padding:10px;
   margin-left: 3em;
 }
