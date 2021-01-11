@@ -20,11 +20,14 @@
   text-shadow: 1px 1px 2px #0a0a0a;
 }
 
-
+.big-title {
+  font-family: 'Redressed', cursive;
+  font-size: 80px;
+}
 /* Footer */
 
 #lab_social_icon_footer {
-  padding: 40px 0;
+  padding: 10px 0;
   background-color: #dedede;
 }
 
@@ -218,6 +221,24 @@
 
 body {
   background-color:rgb(10, 8, 8);
+}
+
+a {
+  font-size: 20px;
+  font-family: 'Fraunces', serif;
+  color: whitesmoke;
+  font-weight: bold;
+}
+h2{
+font-family: 'Fraunces', serif;
+color: whitesmoke;
+}
+h3{
+  font-family: 'Pacifico', cursive;
+  color:whitesmoke;
+}
+footer {
+  text-align: center;
 }
 
 /* Styling Random Recipe Box */
