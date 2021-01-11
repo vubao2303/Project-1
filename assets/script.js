@@ -132,7 +132,18 @@ function displayCitySearch() {
 
 // Validation
 function displayError() {
-    $("display-error")
+    $("display-error").append(`
+    <div class="reveal mobile-ios-modal" id="mobile-ios-modal-2" data-reveal>
+        <div class="mobile-ios-modal-inner">
+            <p>Your password does not match our records. Please re-enter your password.</p>
+        </div>
+
+    <div class="mobile-ios-modal-options">
+        <button data-close class="button">Cancel</button>
+     <button class="button">Ok</button>
+  </div>
+</div>
+    `)
 }
  
 
