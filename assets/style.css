@@ -309,7 +309,6 @@ background:#F6F6F6;
 }
 
 
-<<<<<<< HEAD
 /* #random-recipe{
   margin-top: 600px;
 } */
@@ -344,6 +343,18 @@ background:#F6F6F6;
   animation-duration: 0.4s
 }
 
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
 .close {
   color: white;
   float: right;
@@ -360,17 +371,9 @@ background:#F6F6F6;
 
 .modal-header {
   padding: 2px 16px;
-  background-color: #5cb85c;
+  background-color: #126195;
   color: white;
 }
 
 .modal-body {padding: 2px 16px;}
 
-.modal-footer {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
-}
-=======
-
->>>>>>> 0a92e33f579fef0a654822dc48038574013e2ddf

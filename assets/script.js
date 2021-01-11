@@ -96,7 +96,6 @@ function displayRecipeSearch() {
 							<input id="search-field" type="text" name="keyword" placeholder="Search by keyword ...">
 						</label>
 					</div>
-
 					<button id="recipe-list-button" type="button" class="primary button expanded search-button"><i class="fa fa-search"></i>
 					</button>
 				</form>
@@ -119,10 +118,6 @@ function displayCitySearch() {
 							<input id="search-field" type="text" name="keyword" placeholder="City name ...">
 						</label>
 					</div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 0a92e33f579fef0a654822dc48038574013e2ddf
 					<button id="city-button" type="button" class="primary button expanded search-button"><i class="fa fa-search"></i>
 					</button>
 				</form>
@@ -132,36 +127,22 @@ function displayCitySearch() {
     `)
 }
 
-<<<<<<< HEAD
-
-//---------------- //
-///// FUNCTIONS /////
-//---------------- //
-
+// Error modal
 function displayError() {
-    $("display-error").append(`
-    <!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
+    $("#display-error").append(`
+    <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <h2>Modal Header</h2>
+      <h2>Error</h2>
     </div>
     <div class="modal-body">
-      <p>Some text in the Modal Body</p>
-      <p>Some other text...</p>
+      <p>No recipes found.</p>
     </div>
   </div>
-
-</div>
     `)
 }
 
 
-=======
->>>>>>> 0a92e33f579fef0a654822dc48038574013e2ddf
 // Display a list of recipes based on keyword search.
 function listRecipes() {
     $("#recipe-list").empty();
@@ -295,10 +276,7 @@ $(document.body).on("click", ".recipe-button", function(event) {
     recipeIndex = $(this).attr("value");
     displayKeywordRecipe(recipeIndex);
 });
-<<<<<<< HEAD
-=======
 
->>>>>>> 0a92e33f579fef0a654822dc48038574013e2ddf
 ///// I CAN'T DECIDE
 // Show the user a randomly generated recipe.
 $(".random-button").on("click", function (event) {
@@ -306,33 +284,15 @@ $(".random-button").on("click", function (event) {
     $(".grid-x").empty();
     getRandom().then(displayRandomRecipe);
 });
-<<<<<<< HEAD
-///// I'M FEELING LAZY
-// Create the city-search form.
-=======
 
 ///// I'M FEELING LAZY
 // Create the city-search form.
 
->>>>>>> 0a92e33f579fef0a654822dc48038574013e2ddf
 $(".restaurant-button").on("click", function (event) {
     event.preventDefault();
     $(".grid-x").empty();
     $("#recipe").empty();
     displayCitySearch();
-<<<<<<< HEAD
-});
-// Get the top rated restaurants for user city.
-$(document.body).on("click", "#city-button", function(event) {
-    event.preventDefault();
-    $("#restaurant-list").empty();
-    cityName = $("#search-field").val();
-    getCityInfo().then(getRestaurants).then(listRestaurants);
-    $("#search-field").val("");
-});
-  
-  
-=======
 });
 
 // Get the top rated restaurants for user city.
@@ -465,5 +425,3 @@ $(document.body).on("click", "#city-button", function(event) {
 
 // }
 
-
->>>>>>> 0a92e33f579fef0a654822dc48038574013e2ddf
