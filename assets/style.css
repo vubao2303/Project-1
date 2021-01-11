@@ -78,6 +78,7 @@
   color: #8a8a8a;
 }
 
+
 /* Footer color change when hover */
 #lab_social_icon_footer #social-fb:hover {
   color: #3b5998;
@@ -95,9 +96,10 @@
   color: #f39c12;
 }
 
+
 /***** RESTAURANT & RECIPE CARDS *****/
 .restaurant-card, .recipe-card {
-  background-color: pink;
+  background-color:	#F5F5F5;
   border: 1px solid lightgray;
   padding: 1rem;
   margin: 1.5rem;
@@ -112,18 +114,20 @@
 .card-title {
   font-family: "Open sans", sans-serif;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: bold;
   line-height: 1.45rem;
   margin-top: 1rem;
   margin-bottom: 0;
   color: black;
+  text-align: center;
 }
 
 .card-desc {
-  color: darkgray;
+  color: black;
   display: block;
   font-family: "Open sans", sans-serif;
   font-size: 0.85rem;
+  text-align: center;
 }
 
 .card-link {
@@ -132,7 +136,7 @@
 }
 
 
-/* making the button hover on  the image of cooking  */
+/* making the button hover on the image of cooking  */
 .container {
   position: relative;
   width: 50%;
@@ -172,6 +176,7 @@
   font-size: 16px;
   padding: 16px 32px;
 }
+
 .card:hover .image {
   opacity: 0.3;
 }
@@ -205,6 +210,7 @@ footer {
   text-align: center;
 }
 
+
 /* Styling random recipe and search for recipe */
 #random-recipe, #keyimg {
   display: block;
@@ -220,11 +226,9 @@ footer {
   font-size: 46px;
   text-align: center;
   font-family: 'Trocchi', serif;
-  /* background:  #3d0c02; */
   font-weight: bolder;
   color: black;
 }
-
 
 #random-ingred, #key-ing {
   font-weight: bold;
@@ -242,12 +246,20 @@ footer {
   background: #ba8759;
   color: black;
   font-weight: lighter;
+  margin-left: 60px;
+  margin-right: 60px;
 }
 
 #recipe {
 background:#F6F6F6;
   width: 70%;
   margin: auto;
-  padding: 60px;
+ /* padding: 60px; */
+  /* padding-bottom: 60px;  */
+}
+
+#dirpad {
+  margin-left: 60px;
+  margin-right: 60px;
   padding-bottom: 60px;
 }
