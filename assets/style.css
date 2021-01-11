@@ -1,28 +1,37 @@
 /* header */
 .headerSection {
-background: url("https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500") 50% no-repeat;
-background-size: cover;
-height: 60vh;
-text-align: center;
-display: -webkit-flex;
-display: -ms-flexbox;
-display: flex;
--webkit-align-items: center;
-    -ms-flex-align: center;
-        align-items: center;
--webkit-justify-content: center;
-    -ms-flex-pack: center;
-        justify-content: center;
+  background: url("cook-food-kitchen-eat-54455 2.jpeg")
+    100% no-repeat;
+   
+  background-size: cover;
+  height: 60vh;
+  /* text-align: center; */
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  /* -webkit-align-items: center; */
+  -ms-flex-align: center;
+  /* align-items: center; */
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-top: 1em;
+
 }
-.headerSection .header-section-text {
-color: #FEFEFE;
-text-shadow: 1px 1px 2px #0A0A0A;
+
+.big-title {
+  font-size: 75px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color:#fefefe;
+  opacity: 100%;
+  margin-top: 1em;
 }
+
 
 /* Footer */
 
 #lab_social_icon_footer {
-  padding: 40px 0;
+  padding: 10px 0;
   background-color: #dedede;
 }
 
@@ -30,42 +39,13 @@ text-shadow: 1px 1px 2px #0A0A0A;
   color: #333;
 }
 
-#lab_social_icon_footer .social:hover {
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -o-transform: scale(1.1);
-}
 
-#lab_social_icon_footer .social {
-  -webkit-transform: scale(0.8);
-  /* Browser Variations: */
-  
-
-  
-
-.headerSection {
-  background: url("https://images.pexels.com/photos/33242/cooking-ingredient-cuisine-kitchen.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500") 50% no-repeat;
-  background-size: cover;
-  height: 60vh;
-  text-align: center;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
+/* Search Box */
 
 .headerSection .header-section-text {
   color: #fefefe;
   text-shadow: 1px 1px 2px #0a0a0a;
 }
-
-
-
 
 .translucent-form-overlay {
   max-width: 300px;
@@ -79,11 +59,13 @@ text-shadow: 1px 1px 2px #0A0A0A;
   display: block;
 }
 
-.translucent-form-overlay h3, .translucent-form-overlay label {
+.translucent-form-overlay h3,
+.translucent-form-overlay label {
   color: #fefefe;
 }
 
-.translucent-form-overlay input, .translucent-form-overlay select {
+.translucent-form-overlay input,
+.translucent-form-overlay select {
   color: #8a8a8a;
 }
 
@@ -100,22 +82,13 @@ text-shadow: 1px 1px 2px #0A0A0A;
 }
 
 
-  -moz-transform: scale(0.8);
-  -o-transform: scale(0.8);
-  -webkit-transition-duration: 0.5s;
-  -moz-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-}
-/*
-    Multicoloured Hover Variations
-*/
-
+/* Footer color change when hover */
 #lab_social_icon_footer #social-fb:hover {
-  color: #3B5998;
+  color: #3b5998;
 }
 
 #lab_social_icon_footer #social-tw:hover {
-  color: #4099FF;
+  color: #4099ff;
 }
 
 #lab_social_icon_footer #social-gp:hover {
@@ -127,3 +100,213 @@ text-shadow: 1px 1px 2px #0A0A0A;
 }
 
 
+/***** RESTAURANT & RECIPE CARDS *****/
+.restaurant-card, .recipe-card {
+
+
+  background-color: lightgray;
+  border: 1px solid lightgray;
+  padding: 1rem;
+  margin: 1.5rem;
+  width: 30%;
+}
+.recipe-card  {
+  float: left;
+  width: 25%;
+  padding:10px;
+  margin-left: 3em;
+}
+
+/* .restaurant-card{
+  float: left;
+  width: 25%;
+  padding:10px;
+  margin-left: 3em;
+} */
+.card-thumbnail {
+  display: block;
+  position: relative;
+  text-align: center;
+}
+
+.card-title {
+  font-family: "Open sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  line-height: 1.45rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  color: black;
+
+  text-align: center;
+
+}
+
+.card-desc {
+  color: black;
+  display: block;
+  font-family: "Open sans", sans-serif;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.card-link {
+  display: block;
+  margin-top: 0.8rem;
+}
+
+
+/* making the button hover on the image of cooking  */
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.search-button {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+.card:hover .image {
+  opacity: 0.3;
+}
+
+.card:hover .middle {
+  opacity: 1;
+}
+
+body {
+  background-color:rgb(10, 8, 8);
+}
+
+a {
+  font-size: 20px;
+  font-family: 'Fraunces', serif;
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+h2 {
+font-family: 'Fraunces', serif;
+color: whitesmoke;
+}
+
+h3 {
+  font-family: 'Pacifico', cursive;
+  color:whitesmoke;
+}
+
+footer {
+  text-align: center;
+}
+
+
+
+
+/* Styling Random Recipe Box */
+
+#random-recipe, #keyimg {
+  display: block;
+  margin: 10px auto;
+  max-width: 300px;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+#randomTitle, #key-title {
+  display: block;
+  font-size: 46px;
+  text-align: center;
+  font-family: 'Trocchi', serif;
+
+  font-weight: bolder;
+  color: black;
+}
+
+
+#random-ingred, #key-ing {
+  font-weight: bold;
+  background: #ba8759;
+  color: black;
+  font-weight: lighter;
+}
+
+#ingredient-list, #ingredient-list {
+  list-style: none;
+}
+
+#dirRand, #dirKey {
+  font-weight: bold;
+  background: #ba8759;
+  color: black;
+  font-weight: lighter;
+
+  margin-left: 60px;
+  margin-right: 60px;
+  text-align: center;
+
+}
+
+#recipe {
+background:#F6F6F6;
+  width: 70%;
+  margin: auto;
+ /* padding: 60px; */
+  /* padding-bottom: 60px;  */
+}
+
+#dirpad {
+  margin-left: 60px;
+  margin-right: 60px;
+  padding-bottom: 60px;
+}
+
+#random-ingred, #key-ing {
+  margin-left: 60px;
+  margin-right: 60px;
+  text-align: center;
+  
+}
+#ingredient-list{
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* #keyimg, */
+
+/* #random-recipe{
+  margin-top: 600px;
+} */

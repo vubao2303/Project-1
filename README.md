@@ -1,11 +1,13 @@
-# Project-1 What for Dinner? 
+#What's for Dinner? 
 As a person who needs to eat everyday, I would like some help with cooking or deciding what to eat. I want to have many choices of recipes, and when I can't decide on what to eat I will have a chance to pick a random recipe. If I see something I like, I would like to save it so I could recreate that meal for next time. On the day I don't feel like cooking or following recipes, I want to go out to eat, or in this COVID-19 seasons, get some to go from restaurant near me. 
 
 ## Site Picture
-![Site]()
+![Site](#assets/readmeimg/header.png)
+![Site](#assets/readmeimg/body.png)
+![Site](#assets/readmeimg/inside.png)
 
 # Table of Contents 
-[Tittle](What's for Dinner )
+[Tittle](What's-for-Dinner )
 
 [Site Picutre](#Site-picture)
 
@@ -31,9 +33,9 @@ As a person who needs to eat everyday, I would like some help with cooking or de
   <ul>
   <li> Construct HTML file in semantic style 
   <li> Use Foundation CSS framework to style the page
-  <li> 
-  <li>
-  <li>
+  <li> Add images to jazz up the page 
+  <li> Use flex box and grid tool for responsiveness
+  <li> Create search box for user input 
   <li> Add authors info in the footer 
   </li>
     
@@ -42,7 +44,7 @@ As a person who needs to eat everyday, I would like some help with cooking or de
   <li> Utilize TheMealDB and Zomato API 
   <li> Use AJAX function to pull data
   <li> Name variables as pointer to html file and for functions 
-  <li> Create event listener for buttons to generate recipe info 
+  <li> Create event listener for buttons to generate recipe info, recipe lists, and restaurant list
   <li> Validate user input 
   </li>
   </ul>
@@ -52,35 +54,69 @@ As a person who needs to eat everyday, I would like some help with cooking or de
   <li> Add colors to elements 
   <li> Add background images 
   <li> Select font styles and sizes 
+  <li> Use hover tools for buttons on images
+  <li> Align cards side by side 
   </li>
   </ul>
 ## Code Snippet
-
-```javascript
-
-```
-
-```javascript
-
-
-```
 Name contents using variables 
 ```javascript
 var APIKey = "563492ad6f91700001000001f270577a46c942ff96c8a4e60398816d";
 var recipeSTR = JSON.stringify(data);
+var oldRecipeSTR = recipeData.meals[recipeIndex].strInstructions;
+    
 ```
+
+Use AJAX function to pull date
+```javascript 
+function getRecipes() {
+    return $.ajax({
+        url: "https://www.themealdb.com/api/json/v1/1/search.php?s=" + keywordSearch,
+        method: "GET",
+        cors: true,
+        success: function(data) {
+            var recipeSTR = JSON.stringify(data);
+            recipeData = JSON.parse(recipeSTR);
+            console.log("---- Recipe Data ----")
+            console.log(recipeData);
+        }
+    })
+}
+```
+
+Generate function that create html elements 
+```javascript
+function displayRandomRecipe() {
+    console.log("displayRandomRecipe: " + randomData)
+    $("#recipe").empty();
+    $("#recipe").append(`<img id="random-recipe" src=${randomData.meals[0].strMealThumb} alt="mealImg" >`);
+    $("#recipe").append(`<h1 id="randomTitle" >${randomData.meals[0].strMeal}</h1>`);
+    $("#recipe").append(`<h3 id="random-ingred" >Ingredients:</h3>`);
+    var ingredList = $(`<ul id="ingredient-list"></ul>`);
+    $("#recipe").append(ingredList);
+
+```
+
 
 Use on click function to attaches on click event to button element
 ```javascript 
-$("saveBtn").click(function() {
-   
-  });
+$(document.body).on("click", ".recipe-button", function(event) {
+    event.preventDefault();
+    $("#recipe-list").empty();
+    recipeIndex = $(this).attr("value");
+    displayKeywordRecipe(recipeIndex);
+});
   ```
-  Use conditional statement to compare the time and add class accordingly 
+Use conditional statement to place recipe in html accordingly 
   ```javascript 
-  
-    if and else 
+     if (randomData.meals[0]["strIngredient" + (i+1)] === "" || null) {
+            continue;
+        } else {
+            $("#ingredient-list").append(`<li>${randomData.meals[0]["strIngredient" + (i+1)] + " - " + randomData.meals[0]["strMeasure" + (i+1)]}</li>`);
+        }
   ```
+
+
 
 ## Technologies Used
 - HTML - used to create elements on the DOM
