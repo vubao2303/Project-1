@@ -461,13 +461,3 @@ $(document.body).on("click", "#city-button", function(event) {
 // }
 
 
-/* <div class="grid-x grid-margin-x small-up-2 medium-up-3">
-  <div class="cell">
-    <div class="card">
-      <img src="assets/img/generic/rectangle-1.jpg">
-      <div class="card-section">
-        <h4>This is a row of cards.</h4>
-        <p>This row of cards is embedded in an Flex Block Grid.</p>
-      </div>
-    </div>
-

@@ -104,7 +104,6 @@
 .restaurant-card, .recipe-card {
 
 
-
   background-color: lightgray;
   border: 1px solid lightgray;
   padding: 1rem;
@@ -118,17 +117,18 @@
   margin-left: 3em;
 }
 
-/* .restaurant-card{
+
+.restaurant-card{
   float: left;
   width: 25%;
   padding:10px;
   margin-left: 3em;
-} */
+}
+
 .card-thumbnail {
   display: block;
   position: relative;
   text-align: center;
-
 }
 
 .card-title {
