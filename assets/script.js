@@ -160,10 +160,9 @@ function listRecipes() {
 // Display keyword recipe.
 function displayKeywordRecipe(recipeIndex) {
     $("#recipe").empty();
-    $("#recipe").append(`<img src=${recipeData.meals[recipeIndex].strMealThumb} height="300" width="300" alt="mealImg">`);
-    $("#recipe").append(`<h1>${recipeData.meals[recipeIndex].strMeal}</h1>`);
-    $("#recipe").append(`<button class= "button"> Save this recipe </button>`);
-    $("#recipe").append(`<h3>Ingredients:</h3>`);
+    $("#recipe").append(`<img id="keyimg" src=${recipeData.meals[recipeIndex].strMealThumb} height="300" width="300" alt="mealImg">`);
+    $("#recipe").append(`<h1 id="key-title">${recipeData.meals[recipeIndex].strMeal}</h1>`);
+    $("#recipe").append(`<h3 id="key-ing">Ingredients:</h3>`);
     var ingredList = $(`<ul id="ingredient-list"></ul>`);
     $("#recipe").append(ingredList);
     for (var i = 0; i < 20; i++) {
@@ -186,7 +185,7 @@ function displayKeywordRecipe(recipeIndex) {
     // Remove pesky 'undefined' occurences from directions string.
     newRecipeSTR = newRecipeSTR.replace("undefined1", "1");
     newRecipeSTR = newRecipeSTR.replace("undefined", "");
-    $("#recipe").append(`<h3>Directions: </h3><p>${newRecipeSTR}</p>`);
+    $("#recipe").append(`<h3 id="dirKey">Directions: </h3><p>${newRecipeSTR}</p>`);
 };
 
 // Display random recipe.
@@ -216,9 +215,7 @@ function displayRandomRecipe() {
     }
     newRecipeSTR = newRecipeSTR.replace("undefined1", "1");
     newRecipeSTR = newRecipeSTR.replace("undefined", "");
-    $("#recipe").append(`<h3 id="dirRand" >Directions: </h3><p>${newRecipeSTR}</p>`);
-    $("#recipe").append(`<button id="random-button" class= "button"> Save this recipe </button>`);
-
+    $("#recipe").append(`<h3 id="dirRand" >Directions: </h3><p>${newRecipeSTR}</p>`);  
 };
 
 ///// DISPLAY RESTAURANT INFO
