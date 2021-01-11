@@ -7,12 +7,6 @@ var recipeData; var randomData; var cityData; var restaurantData;
 // These variables apply to the searches.
 var keywordSearch; var cityName; var entityID; var entityType; var recipeList = []; var recipeIndex;
 
-// These variables are just for testing functionality until the event listeners are fully operational.
-var testPic = "pizza";
-var testFood = "pizza";
-var testCity = "sacramento";
-var testCityID = "499";
-
 
 //------------------ //
 ///// API QUERIES /////
@@ -41,7 +35,7 @@ function getRandom() {
         success: function(data) {
             var randomSTR = JSON.stringify(data);
             randomData = JSON.parse(randomSTR);
-            console.log("---- RandomData ----")
+            console.log("---- Random Data ----")
             console.log(randomData);
         }
     })
@@ -57,6 +51,7 @@ function getCityInfo() {
         success: function(data) {
             var citySTR = JSON.stringify(data);
             cityData = JSON.parse(citySTR);
+            // Save the entity_ID and entity_type.
             entityID = cityData.location_suggestions[0].entity_id;
             entityType = cityData.location_suggestions[0].entity_type;
             console.log("---- City Data ----")
@@ -80,6 +75,11 @@ function getRestaurants() {
         }
     })
 }
+
+
+//---------------- //
+///// FUNCTIONS /////
+//---------------- //
 
 // Display recipe search form.
 function displayRecipeSearch() {
@@ -128,11 +128,6 @@ function displayCitySearch() {
 	</section>
     `)
 }
-
-
-//---------------- //
-///// FUNCTIONS /////
-//---------------- //
 
 // Display a list of recipes based on keyword search.
 function listRecipes() {
@@ -191,7 +186,6 @@ function displayKeywordRecipe(recipeIndex) {
 
 // Display random recipe.
 function displayRandomRecipe() {
-    console.log("displayRandomRecipe: " + randomData)
     $("#recipe").empty();
     $("#recipe").append(`<img src=${randomData.meals[0].strMealThumb} height="300" width="300" alt="mealImg" >`);
     $("#recipe").append(`<h1>${randomData.meals[0].strMeal}</h1>`);
@@ -222,7 +216,6 @@ function displayRandomRecipe() {
     $("#recipe").append(`<h3>Directions: </h3><p>${newRecipeSTR}</p>`);
 };
 
-///// DISPLAY RESTAURANT INFO
 // List local restaurants.
 function listRestaurants() {
     $("#restaurant-list").empty();
@@ -246,8 +239,7 @@ function listRestaurants() {
 //---------------------- //
 ///// EVENT LISTENERS /////
 //---------------------- //
-
-///// FIND RECIPE /////
+///// FIND RECIPE
 // Create the recipe search form.
 $(".search-recipe").on("click", function (event) {
     event.preventDefault();
@@ -255,7 +247,6 @@ $(".search-recipe").on("click", function (event) {
     $("#recipe").empty();
     displayRecipeSearch();
 });
-
 // Return list of all recipes.
 $(document.body).on("click", "#recipe-list-button", function(event) {
     event.preventDefault();
@@ -264,7 +255,6 @@ $(document.body).on("click", "#recipe-list-button", function(event) {
     getRecipes().then(listRecipes);
     $("#search-field").val("");
 })
-
 // Get the recipe info for the user's choice.
 $(document.body).on("click", ".recipe-button", function(event) {
     event.preventDefault();
@@ -273,7 +263,7 @@ $(document.body).on("click", ".recipe-button", function(event) {
     displayKeywordRecipe(recipeIndex);
 });
 
-///// I CAN'T DECIDE /////
+///// I CAN'T DECIDE
 // Show the user a randomly generated recipe.
 $(".random-button").on("click", function (event) {
     event.preventDefault();
@@ -281,7 +271,7 @@ $(".random-button").on("click", function (event) {
     getRandom().then(displayRandomRecipe);
 });
 
-///// I'M FEELING LAZY /////
+///// I'M FEELING LAZY
 // Create the city-search form.
 $(".restaurant-button").on("click", function (event) {
     event.preventDefault();
