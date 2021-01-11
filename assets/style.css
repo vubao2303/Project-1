@@ -260,7 +260,7 @@ footer {
 
 #random-ingred, #key-ing {
   font-weight: bold;
-  background: #ba8759;
+  background: #83572b;
   color: black;
   font-weight: lighter;
 }
@@ -271,7 +271,7 @@ footer {
 
 #dirRand, #dirKey {
   font-weight: bold;
-  background: #ba8759;
+  background:#83572b;
   color: black;
   font-weight: lighter;
 
@@ -308,8 +308,5 @@ background:#F6F6F6;
   margin-bottom: 30px;
 }
 
-/* #keyimg, */
 
-/* #random-recipe{
-  margin-top: 600px;
-} */
+
