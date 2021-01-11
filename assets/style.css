@@ -187,7 +187,7 @@
   font-size: 46px;
   text-align: center;
   font-family: 'Trocchi', serif;
-  background: #F5F5F5;
+  background: #E0EEE0;
   font-weight: bolder;
 }
 
@@ -195,12 +195,15 @@
   font-family: Arial;
   font-size: medium;
   border-radius: 8px;
+ background: #E0EEE0;
+ color: black;
+ float: right;
+ font-weight: bold;
 }
 
 #random-ingred {
   font-weight: bold;
-  background: #F5F5F5;
-  border: #F5F5F5;
+  background: #E0EEE0;
 }
 
 ul {
@@ -209,5 +212,14 @@ ul {
 
 #dirRand {
   font-weight: bold;
-  background: #F5F5F5;
+  background: #E0EEE0;
+}
+
+#recipe {
+background: #F5F5F5;
+  width: 600px;
+}
+
+.recipe-card {
+  background: black;
 }
