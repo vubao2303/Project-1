@@ -83,17 +83,6 @@
 
 
 /* Footer color change when hover */
-/* 
-  -moz-transform: scale(0.8);
-  -o-transform: scale(0.8);
-  -webkit-transition-duration: 0.5s;
-  -moz-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-} */
-/*
-    Multicoloured Hover Variations
-*/
-
 #lab_social_icon_footer #social-fb:hover {
   color: #3b5998;
 }
@@ -113,6 +102,7 @@
 
 /***** RESTAURANT & RECIPE CARDS *****/
 .restaurant-card, .recipe-card {
+
 
 
   background-color: lightgray;
@@ -138,6 +128,7 @@
   display: block;
   position: relative;
   text-align: center;
+
 }
 
 .card-title {
