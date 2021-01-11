@@ -41,7 +41,6 @@
 
 
 /* Search Box */
-
 .headerSection .header-section-text {
   color: #fefefe;
   text-shadow: 1px 1px 2px #0a0a0a;
@@ -53,6 +52,7 @@
   background-color: rgba(54, 54, 54, 0.8);
   padding: 20px;
   color: #fefefe;
+  margin: auto;
 }
 
 .translucent-form-overlay .columns.row {
@@ -104,7 +104,6 @@
 .restaurant-card, .recipe-card {
 
 
-
   background-color: lightgray;
   border: 1px solid lightgray;
   padding: 1rem;
@@ -118,17 +117,18 @@
   margin-left: 3em;
 }
 
-/* .restaurant-card{
+
+.restaurant-card{
   float: left;
   width: 25%;
   padding:10px;
   margin-left: 3em;
-} */
+}
+
 .card-thumbnail {
   display: block;
   position: relative;
   text-align: center;
-
 }
 
 .card-title {
@@ -162,6 +162,7 @@
 .container {
   position: relative;
   width: 50%;
+  margin: auto;
 }
 
 .image {
