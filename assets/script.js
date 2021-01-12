@@ -45,9 +45,6 @@ function getRandom() {
 
 // Query the Zomato database to get location details.
 function getCityInfo() {
-    if ((entityType === "undefined" || null) || (entityID === "undefined" || null)){
-        displayError();
-    } else {
     return $.ajax({
         url: "https://developers.zomato.com/api/v2.1/locations?query=" + cityName,
         headers: {"Accept": "application/json", "user-key": "19196cd7a5838aa26e070b8a475ef856"},
@@ -67,6 +64,9 @@ function getCityInfo() {
 
 // Query the Zomato database to get top rated restaurants.
 function getRestaurants() {
+    if ((entityType === "" || null) || (entityID === "" || null)){
+        displayError();
+    }
     return $.ajax({
         url: "https://developers.zomato.com/api/v2.1/location_details?entity_id=" + entityID + "&entity_type=" + entityType,
         headers: {"Accept": "application/json", "user-key": "19196cd7a5838aa26e070b8a475ef856"},
@@ -143,13 +143,15 @@ function displayError() {
     </div>
     </div>
     `)
-      }
-
+}
 
 
 // Display a list of recipes based on keyword search.
 function listRecipes() {
     $("#recipe-list").empty();
+    if (recipeData.meals === null) {
+        displayError();
+    } else {
         for (var i = 0; i < 25; i++) {
             // Add image and title.
             recipeList.push(recipeData.meals[i]);
@@ -233,24 +235,21 @@ function displayRandomRecipe() {
 // List local restaurants.
 function listRestaurants() {
     $("#restaurant-list").empty();
-    if (restaurantData.best_rated_restaurant === null) {
-        displayError();
-    } else {
-        for (var i = 0; i < 10; i++) {
-            $("#restaurant-list").append(`
-            <div class="restaurant-card">
-                <h2 class="card-title">${restaurantData.best_rated_restaurant[i].restaurant.name}</h2><br>
-                <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i].restaurant.cuisines}</p>
-                <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i].restaurant.average_cost_for_two}</p>
-                <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i].restaurant.location.address}</p>
-                <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i].restaurant.phone_numbers}</p>
-                <div class="card-link">
-                    <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
-                </div>
+    for (var i = 0; i < 10; i++) {
+        $("#restaurant-list").append(`
+        <div class="restaurant-card">
+            <h2 class="card-title">${restaurantData.best_rated_restaurant[i].restaurant.name}</h2><br>
+            <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i].restaurant.cuisines}</p>
+            <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i].restaurant.average_cost_for_two}</p>
+            <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i].restaurant.location.address}</p>
+            <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i].restaurant.phone_numbers}</p>
+            <div class="card-link">
+                <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
             </div>
-            `)
-        }
+        </div>
+        `)
     }
+
 }
 
 //---------------------- //
