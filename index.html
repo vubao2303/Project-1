@@ -24,14 +24,21 @@
 </head>
 
 <body>
-	<!-- Header with image -->
-	<header class="container-fluid">
-		<div class="headerSection header-section-text">
-			<h1 class="big-title">What's for Dinner?</h1>
+
+	<!-- trying container fluid  -->
+	<div class="biggest-box">
+	<header class="grid-container fluid">
+		<div class="grid-x grid-padding-x">
+			<div class="cell small-12 medium-12 large-12">
+				<img class="header-img" src="assets/title.png">
+			</div>
+			<div class="cell small-12 medium-12 large-12">
+				<img class= "header-img" width="1000" height="300" src="assets/Screen Shot 2021-01-11 at 9.03.51 PM.png">
+			</div>
 		</div>
+
 		<nav>
 			<div class="topnav top-bar-right">
-	
 				<div class="top-bar-right">
 					<ul class="menu">
 						<a class="nav-link active" aria-current="page" href="./index.html">HOME</a>
@@ -41,12 +48,13 @@
 			</div>
 		</nav>
 	</header>
-	
+
+
 	<!-- start foundation template  -->
-	
-	<div class="grid-x grid-padding-x three-pictures" style="margin-top: 4em; margin-bottom:4em; margin-left:3em;">
-	
-		<div class="cell small-12 medium-6 large-4">
+
+	<div class="grid-x grid-padding-x three-pictures" style="margin-top: 4em; margin-bottom:4em; margin-left:3em; margin-right:3em">
+
+		<div class="cell small-12 medium-12 large-4">
 			<div class="container" style="height: 551.97px; width:367.98px; padding: 0.5em">
 				<img src="./assets/search-cook.jpeg" alt="Cooking at home" class="image" style="width:100%">
 				<div class="middle">
@@ -54,8 +62,8 @@
 				</div>
 			</div>
 		</div>
-	
-		<div class="cell small-12 medium-6 large-4">
+
+		<div class="cell small-12 medium-12 large-4">
 			<div class="container" style="height: 551.97px; width:367.98px; padding: 0.5em">
 				<img src="./assets/Random-img.jpeg" alt="I can cook anything" class="image" style="width:100%">
 				<div class="middle">
@@ -63,8 +71,8 @@
 				</div>
 			</div>
 		</div>
-	
-		<div class="cell small-12 medium-6 large-4" class="restaurant-button">
+
+		<div class="cell small-12 medium-12 large-4" class="restaurant-button">
 			<div class="container" style="height: 551.97px; width:367.98px; padding: 0.5em">
 				<img src="./assets/Restaurant.jpeg" alt="Restaurant" class="image" style="width:100%">
 				<div class="middle">
@@ -78,7 +86,7 @@
 
 	<!-- Search form will display here -->
 	<div id="search-form"></div>
-	
+
 	<!-- RECIPE INFO -->
 	<section class="col-md-9 recipe-display">
 		<div class="row current">
@@ -88,9 +96,9 @@
 				<div id="recipe"></div>
 			</div>
 		</div>
-	
+
 	</section>
-	
+
 	<!-- Button for random recipe -->
 	<div class="row random-button">
 		<button> I CAN'T DECIDE </button>
@@ -103,9 +111,9 @@
 			<div id="restaurant"></div>
 		</div>
 	</section>
-	
+
 	<!-- Footer -->
-	
+
 	<footer id="lab_social_icon_footer" class="grid-x grid-padding-x align-center">
 		<!-- Aligned to the center -->
 		<div class="cell small-12 large12 text-center center-block info-container">
@@ -117,6 +125,8 @@
 	</footer>
 
 
+	<!-- close the biggest box -->
+</div>
 
 	<!-- LINK to SCRIPTS! -->
 	<!-- JQuery -->
