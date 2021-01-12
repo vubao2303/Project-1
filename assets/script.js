@@ -128,7 +128,7 @@ function displayCitySearch() {
 }
 
 // Error modal
-function displayError() {
+function displayError() { 
     $("#display-error").append(`
     <div class="modal-content">
     <div class="modal-header">
@@ -136,11 +136,12 @@ function displayError() {
       <h2>Error</h2>
     </div>
     <div class="modal-body">
-      <p>No recipes found.</p>
+      <p>Nothing found.</p>
     </div>
-  </div>
+    </div>
     `)
-}
+      }
+
 
 
 // Display a list of recipes based on keyword search.
@@ -232,21 +233,24 @@ function displayRandomRecipe() {
 // List local restaurants.
 function listRestaurants() {
     $("#restaurant-list").empty();
-    for (var i = 0; i < 10; i++) {
-        $("#restaurant-list").append(`
-        <div class="restaurant-card">
-            <h2 class="card-title">${restaurantData.best_rated_restaurant[i].restaurant.name}</h2><br>
-            <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i].restaurant.cuisines}</p>
-            <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i].restaurant.average_cost_for_two}</p>
-            <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i].restaurant.location.address}</p>
-            <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i].restaurant.phone_numbers}</p>
-            <div class="card-link">
-                <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
+    if (restaurantData.best_rated_restaurant === null) {
+        displayError();
+    } else {
+        for (var i = 0; i < 10; i++) {
+            $("#restaurant-list").append(`
+            <div class="restaurant-card">
+                <h2 class="card-title">${restaurantData.best_rated_restaurant[i].restaurant.name}</h2><br>
+                <p class="card-desc">Cuisine: ${restaurantData.best_rated_restaurant[i].restaurant.cuisines}</p>
+                <p class="card-desc">Avg cost for 2: $${restaurantData.best_rated_restaurant[i].restaurant.average_cost_for_two}</p>
+                <p class="card-desc">Address: ${restaurantData.best_rated_restaurant[i].restaurant.location.address}</p>
+                <p class="card-desc">Phone #: ${restaurantData.best_rated_restaurant[i].restaurant.phone_numbers}</p>
+                <div class="card-link">
+                    <a href="${restaurantData.best_rated_restaurant[i].restaurant.url}">View Restaurant</a>
+                </div>
             </div>
-        </div>
-        `)
+            `)
+        }
     }
-
 }
 
 //---------------------- //
@@ -424,4 +428,3 @@ $(document.body).on("click", "#city-button", function(event) {
 //     }
 
 // }
-
