@@ -45,6 +45,9 @@ function getRandom() {
 
 // Query the Zomato database to get location details.
 function getCityInfo() {
+    if ((entityType === "undefined" || null) || (entityID === "undefined" || null)){
+        displayError();
+    } else {
     return $.ajax({
         url: "https://developers.zomato.com/api/v2.1/locations?query=" + cityName,
         headers: {"Accept": "application/json", "user-key": "19196cd7a5838aa26e070b8a475ef856"},
@@ -147,9 +150,6 @@ function displayError() {
 // Display a list of recipes based on keyword search.
 function listRecipes() {
     $("#recipe-list").empty();
-    if (recipeData.meals === null) {
-        displayError();
-    } else {
         for (var i = 0; i < 25; i++) {
             // Add image and title.
             recipeList.push(recipeData.meals[i]);
