@@ -203,6 +203,7 @@ function displayKeywordRecipe(recipeIndex) {
 // Display random recipe.
 function displayRandomRecipe() {
     $("#recipe").empty();
+    $("#recipe").append(`<button class="random-button button button-rounded-hover">Find Another</button>`);
     $("#recipe").append(`<img id="random-recipe" src=${randomData.meals[0].strMealThumb} alt="mealImg" >`);
     $("#recipe").append(`<h1 id="randomTitle" >${randomData.meals[0].strMeal}</h1>`);
     $("#recipe").append(`<h3 id="random-ingred" >Ingredients:</h3>`);
@@ -265,7 +266,6 @@ $(".search-recipe").on("click", function (event) {
 // Return list of all recipes.
 $(document.body).on("click", "#recipe-list-button", function(event) {
     event.preventDefault();
-    $(".three-pictures").empty();
     keywordSearch = $("#search-field").val();
     getRecipes().then(listRecipes);
     $("#search-field").val("");
@@ -279,11 +279,11 @@ $(document.body).on("click", ".recipe-button", function(event) {
 });
 ///// I CAN'T DECIDE
 // Show the user a randomly generated recipe.
-$(".random-button").on("click", function (event) {
+$(document.body).on("click", ".random-button", function() {
     event.preventDefault();
     $(".three-pictures").empty();
     getRandom().then(displayRandomRecipe);
-});
+})
 
 ///// I'M FEELING LAZY
 // Create the city-search form.
@@ -301,17 +301,3 @@ $(document.body).on("click", "#city-button", function(event) {
     getCityInfo().then(getRestaurants).then(listRestaurants);
     $("#search-field").val("");
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
