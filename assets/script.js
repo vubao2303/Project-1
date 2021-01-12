@@ -64,6 +64,9 @@ function getCityInfo() {
 
 // Query the Zomato database to get top rated restaurants.
 function getRestaurants() {
+    if ((entityType === "" || null) || (entityID === "" || null)){
+        displayError();
+    }
     return $.ajax({
         url: "https://developers.zomato.com/api/v2.1/location_details?entity_id=" + entityID + "&entity_type=" + entityType,
         headers: {"Accept": "application/json", "user-key": "19196cd7a5838aa26e070b8a475ef856"},
@@ -96,9 +99,7 @@ function displayRecipeSearch() {
 							<input id="search-field" type="text" name="keyword" placeholder="Search by keyword ...">
 						</label>
 					</div>
-
 					<button id="recipe-list-button" type="button" class="primary button expanded search-button"><i class="fa fa-search"></i>
-
 					</button>
 				</form>
 			</div>
@@ -120,9 +121,7 @@ function displayCitySearch() {
 							<input id="search-field" type="text" name="keyword" placeholder="City name ...">
 						</label>
 					</div>
-
 					<button id="city-button" type="button" class="primary button expanded search-button"><i class="fa fa-search"></i>
-
 					</button>
 				</form>
 			</div>
@@ -131,11 +130,27 @@ function displayCitySearch() {
     `)
 }
 
+// Error modal
+function displayError() { 
+    $("#display-error").append(`
+    <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Error</h2>
+    </div>
+    <div class="modal-body">
+      <p>Nothing found.</p>
+    </div>
+    </div>
+    `)
+}
+
+
 // Display a list of recipes based on keyword search.
 function listRecipes() {
     $("#recipe-list").empty();
     if (recipeData.meals === null) {
-        $("#recipe-list").append('<h3>Sorry, no results found. Please try again.</h3>');
+        displayError();
     } else {
         for (var i = 0; i < 25; i++) {
             // Add image and title.
