@@ -238,6 +238,7 @@ footer {
 
 #random-recipe, #keyimg {
   display: block;
+  padding-top: 40px;
   margin: 10px auto;
   max-width: 300px;
   border-radius: 4px;
@@ -306,3 +307,14 @@ background:#F6F6F6;
 
 
 
+#instructions, #rInstructions {
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  padding-bottom: 30px;
+}
+
+.card-footer {
+  position: relative;
+}
