@@ -258,14 +258,14 @@ function listRestaurants() {
 // Create the recipe search form.
 $(".search-recipe").on("click", function (event) {
     event.preventDefault();
-    $(".grid-x").empty();
+    $(".three-pictures").empty();
     $("#recipe").empty();
     displayRecipeSearch();
 });
 // Return list of all recipes.
 $(document.body).on("click", "#recipe-list-button", function(event) {
     event.preventDefault();
-    $(".grid-x").empty();
+    $(".three-pictures").empty();
     keywordSearch = $("#search-field").val();
     getRecipes().then(listRecipes);
     $("#search-field").val("");
@@ -281,7 +281,7 @@ $(document.body).on("click", ".recipe-button", function(event) {
 // Show the user a randomly generated recipe.
 $(".random-button").on("click", function (event) {
     event.preventDefault();
-    $(".grid-x").empty();
+    $(".three-pictures").empty();
     getRandom().then(displayRandomRecipe);
 });
 
@@ -289,7 +289,7 @@ $(".random-button").on("click", function (event) {
 // Create the city-search form.
 $(".restaurant-button").on("click", function (event) {
     event.preventDefault();
-    $(".grid-x").empty();
+    $(".three-pictures").empty();
     $("#recipe").empty();
     displayCitySearch();
 });
