@@ -7,9 +7,9 @@ As a person who needs to eat everyday, I would like some help with cooking or de
 ![Site](assets/readmeimg/inside.png)
 
 # Table of Contents 
-[Tittle](What's-for-Dinner )
+[Title](What's-for-Dinner )
 
-[Site Picutre](#Site-picture)
+[Site Picture](#Site-picture)
 
 [Table of Contents](#Table-of-Content)
 
@@ -134,8 +134,6 @@ Use conditional statement to place recipe in html accordingly
   * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 - Javascript - gives interacticve elements to web pages
   * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- Bootstrap - design and customize responsive site
-  * [Bootstrap](https://getbootstrap.com/)
 - Jquery - use API to makes DOM traversal, manipulation, event handling, etc. simpler
   * [Jquery](https://jquery.com/)
 - Git - version control system to track changes to source code
@@ -146,8 +144,10 @@ Use conditional statement to place recipe in html accordingly
   * [theMealDb](https://www.themealdb.com/api.php) 
 - Zomato- give data access to more than 1 million restaurants across 10,000 cities globally
   * [Zomato](https://developers.zomato.com/api) 
-- Foudation -Responsive CSS frameworks 
+- Foudation - Responsive CSS frameworks 
   * [Foundation](https://get.foundation/)
+- Micromodal - A lightweight, configurable and a11y-enabled modal library written in pure JavaScript
+  * [Micromodal.js](https://micromodal.now.sh/)
 
 ## Deployed Link
 
